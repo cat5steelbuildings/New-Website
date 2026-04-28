@@ -310,11 +310,9 @@ nav.main a:hover { color: var(--orange-glow); }
   position: relative;
   aspect-ratio: 3 / 2;
   background: transparent;
-  overflow: hidden;
-  box-shadow: 0 30px 80px -10px rgba(0, 0, 0, 0.7);
-  border: 2px solid rgba(255,255,255,0.15);
+  overflow: visible;
 }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .hero-photo .badge {
   position: absolute; top: 20px; left: 20px;
   background: var(--orange);
@@ -326,7 +324,7 @@ nav.main a:hover { color: var(--orange-glow); }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   display: flex; align-items: center; gap: 8px;
-  box-shadow: 0 4px 20px rgba(229, 90, 20, 0.5);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6), 0 0 0 2px rgba(255, 122, 46, 0.3);
 }
 .hero-photo .badge::before {
   content: ''; width: 8px; height: 8px; background: white;
@@ -334,12 +332,13 @@ nav.main a:hover { color: var(--orange-glow); }
   animation: pulse 1.8s ease-in-out infinite;
 }
 .hero-photo .stamp {
-  position: absolute; bottom: 20px; right: 20px;
+  position: absolute; bottom: 20px; left: 20px;
   background: var(--navy-deep);
   color: white;
   padding: 14px 18px;
   font-family: 'Archivo', sans-serif;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
 }
 .hero-photo .stamp .num {
   font-weight: 900; font-size: 32px; line-height: 1;
