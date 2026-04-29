@@ -1266,6 +1266,325 @@ footer {
   .plan-ctas { grid-template-columns: 1fr; }
   .plan-cta-tertiary { grid-column: span 2; }
 }
+
+/* ===== QUOTE FORM (embedded in #quote section) ===== */
+.quote-shell {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 28px;
+  max-width: 1080px;
+  margin: 28px auto 0;
+  text-align: left;
+}
+.quote-form-card {
+  background: white;
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.04);
+  color: var(--ink);
+}
+.quote-form-card h3 {
+  font-size: 22px;
+  margin-bottom: 4px;
+  color: var(--navy);
+}
+.quote-form-card .quote-form-sub {
+  font-size: 13px;
+  color: var(--steel-600);
+  margin-bottom: 20px;
+}
+.quote-call-card {
+  background: linear-gradient(180deg, var(--navy-soft) 0%, var(--navy) 100%);
+  border-radius: 14px;
+  padding: 32px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.quote-call-eyebrow {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange-glow);
+  margin-bottom: 14px;
+}
+.quote-call-card h4 {
+  font-size: 22px;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+.quote-call-num {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  color: white;
+  margin-bottom: 8px;
+  display: block;
+  letter-spacing: -0.01em;
+}
+.quote-call-num:hover { color: var(--orange-glow); }
+.quote-call-hours {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.quote-call-btn {
+  display: inline-block;
+  background: var(--orange);
+  color: white;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.2s;
+}
+.quote-call-btn:hover { background: var(--orange-deep); transform: translateY(-1px); }
+
+/* Form fields */
+.qf-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.qf-field { display: flex; flex-direction: column; }
+.qf-field.full { grid-column: span 2; }
+.qf-field label {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 5px;
+}
+.qf-field label .opt {
+  color: var(--steel-400);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 10px;
+  margin-left: 4px;
+}
+.qf-field input,
+.qf-field textarea,
+.qf-field select {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 14px;
+  padding: 11px 13px;
+  border: 1.5px solid var(--steel-200);
+  border-radius: 7px;
+  background: var(--cream);
+  color: var(--ink);
+  transition: border-color 0.15s, background 0.15s;
+}
+.qf-field input:focus,
+.qf-field textarea:focus,
+.qf-field select:focus {
+  outline: none;
+  border-color: var(--orange);
+  background: white;
+}
+.qf-field textarea { min-height: 70px; resize: vertical; font-family: inherit; }
+.qf-submit {
+  width: 100%;
+  background: var(--orange);
+  color: white;
+  border: none;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.qf-submit:hover:not(:disabled) { background: var(--orange-deep); transform: translateY(-1px); }
+.qf-submit:disabled { opacity: 0.6; cursor: wait; }
+.qf-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--steel-600);
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+.qf-trust span::before { content: '✓ '; color: var(--green); font-weight: 800; }
+.qf-status {
+  font-size: 13px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  display: none;
+}
+.qf-status.show { display: block; }
+.qf-status.success { background: rgba(45,159,77,0.10); color: var(--green); border: 1px solid rgba(45,159,77,0.25); }
+.qf-status.error   { background: rgba(200,51,30,0.08); color: var(--red);   border: 1px solid rgba(200,51,30,0.20); }
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(10, 22, 40, 0.78);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow-y: auto;
+  animation: modalFade 0.18s ease;
+}
+.modal-overlay.open { display: flex; }
+@keyframes modalFade { from { opacity: 0; } to { opacity: 1; } }
+.modal-box {
+  background: var(--cream);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 560px;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  animation: modalSlide 0.22s ease;
+}
+@keyframes modalSlide { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-close {
+  position: absolute;
+  top: 12px; right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--steel-400);
+  cursor: pointer;
+  z-index: 2;
+}
+.modal-close:hover { color: var(--ink); }
+.modal-header {
+  background: var(--navy);
+  color: white;
+  padding: 24px 32px 22px;
+  border-radius: 14px 14px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.modal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--orange-glow));
+}
+.modal-eyebrow {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--orange-glow);
+  margin-bottom: 8px;
+}
+.modal-header h3 {
+  font-size: 22px;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+.modal-header h3 .accent { color: var(--orange-glow); }
+.modal-header p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 6px;
+}
+.modal-body { padding: 24px 32px 28px; }
+.modal-call-strip {
+  background: white;
+  border: 1.5px solid var(--steel-200);
+  border-radius: 9px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.modal-call-strip-left {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--steel-600);
+  line-height: 1.3;
+}
+.modal-call-strip-left strong { color: var(--navy); display: block; font-size: 12px; }
+.modal-call-strip a {
+  background: var(--green);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.modal-call-strip a:hover { background: var(--green-bright); }
+.modal-or {
+  text-align: center;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--steel-400);
+  margin: 4px 0 16px;
+  position: relative;
+}
+.modal-or::before, .modal-or::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 38%;
+  height: 1px;
+  background: var(--steel-200);
+}
+.modal-or::before { left: 0; }
+.modal-or::after  { right: 0; }
+.modal-foot {
+  font-size: 11px;
+  color: var(--steel-400);
+  margin-top: 12px;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+/* RESPONSIVE: Quote section + modals */
+@media (max-width: 800px) {
+  .quote-shell { grid-template-columns: 1fr; gap: 18px; }
+  .quote-form-card, .quote-call-card { padding: 24px; }
+  .qf-row { grid-template-columns: 1fr; gap: 10px; }
+  .qf-field.full { grid-column: span 1; }
+  .modal-overlay { padding: 16px 12px; }
+  .modal-header { padding: 22px 22px 20px; }
+  .modal-body { padding: 20px 22px 24px; }
+  .modal-call-strip { flex-direction: column; align-items: stretch; text-align: center; }
+}
 </style>
 </head>
 <body>
@@ -1279,7 +1598,7 @@ footer {
     </div>
     <div class="topbar-right">
       <a href="#financing" style="color: var(--orange-glow); font-weight: 700;">💳 0% Financing · RTO · No Credit Check</a>
-      <a href="cat5-buyers-warning.pdf" class="ebook" target="_blank">📘 FREE GUIDE</a>
+      <a href="cat5-buyers-warning.pdf" class="ebook" data-form-trigger="guide">📘 FREE GUIDE</a>
     </div>
   </div>
 </div>
@@ -1298,7 +1617,7 @@ footer {
       <a href="#why">Why Cat 5</a>
       <a href="#gallery">Gallery</a>
     </nav>
-    <a href="#quote" class="btn btn-primary">Get a Quote</a>
+    <a href="#quote" class="btn btn-primary" data-form-trigger="quote">Get a Quote</a>
   </div>
 </header>
 
@@ -1408,10 +1727,10 @@ footer {
                 <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
               </div>
               <div class="plan-ctas">
-                <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+                <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
                 <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
                 <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-                <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+                <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
               </div>
             </div>
           </div>
@@ -1431,10 +1750,10 @@ footer {
                 <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
               </div>
               <div class="plan-ctas">
-                <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+                <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
                 <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
                 <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-                <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+                <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
               </div>
             </div>
           </div>
@@ -1454,10 +1773,10 @@ footer {
                 <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
               </div>
               <div class="plan-ctas">
-                <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+                <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
                 <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
                 <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-                <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+                <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
               </div>
             </div>
           </div>
@@ -1489,10 +1808,10 @@ footer {
                 <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
               </div>
               <div class="plan-ctas">
-                <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+                <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
                 <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
                 <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-                <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+                <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
               </div>
             </div>
           </div>
@@ -1512,10 +1831,10 @@ footer {
                 <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
               </div>
               <div class="plan-ctas">
-                <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+                <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
                 <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
                 <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-                <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+                <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
               </div>
             </div>
           </div>
@@ -1535,10 +1854,10 @@ footer {
                 <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
               </div>
               <div class="plan-ctas">
-                <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+                <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
                 <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
                 <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-                <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+                <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
               </div>
             </div>
           </div>
@@ -1569,10 +1888,10 @@ footer {
                 <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
               </div>
               <div class="plan-ctas">
-                <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+                <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
                 <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
                 <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-                <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+                <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
               </div>
             </div>
           </div>
@@ -1592,10 +1911,10 @@ footer {
                 <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
               </div>
               <div class="plan-ctas">
-                <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+                <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
                 <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
                 <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-                <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+                <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
               </div>
             </div>
           </div>
@@ -1615,10 +1934,10 @@ footer {
                 <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
               </div>
               <div class="plan-ctas">
-                <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+                <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
                 <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
                 <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-                <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+                <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
               </div>
             </div>
           </div>
@@ -1650,10 +1969,10 @@ footer {
             <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
           </div>
           <div class="plan-ctas">
-            <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+            <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
             <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
             <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-            <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+            <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
           </div>
         </div>
       </div>
@@ -1673,10 +1992,10 @@ footer {
             <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
           </div>
           <div class="plan-ctas">
-            <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+            <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
             <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
             <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-            <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+            <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
           </div>
         </div>
       </div>
@@ -1696,10 +2015,10 @@ footer {
             <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
           </div>
           <div class="plan-ctas">
-            <a href="#quote" class="plan-cta plan-cta-primary">Get Local Price</a>
+            <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">Get Local Price</a>
             <a href="#builder" class="plan-cta plan-cta-secondary">3D Design &amp; Price</a>
             <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
-            <a href="tel:8884078335" class="plan-cta plan-cta-tertiary">Ask Us</a>
+            <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
           </div>
         </div>
       </div>
@@ -2040,10 +2359,47 @@ footer {
   <div class="final-cta-inner">
     <div class="eyebrow" style="justify-content: center;">Free Quote · 60 Seconds</div>
     <h2>Ready to <span class="accent">build?</span></h2>
-    <p>Free quotes. No pressure. No hidden fees. Pick a plan, design your own, or call us — whatever works for you.</p>
-    <div class="final-cta-buttons">
-      <a href="#plans" class="btn btn-primary btn-cta-large">Choose a Plan</a>
-      <a href="tel:8884078335" class="btn btn-outline-white btn-cta-large">📞 (888) 407-8335</a>
+    <p>Free quotes. No pressure. No hidden fees. Fill it out — or just give us a call. Whatever works.</p>
+
+    <div class="quote-shell">
+      <!-- LEFT: form -->
+      <div class="quote-form-card">
+        <h3>Get your turnkey quote</h3>
+        <div class="quote-form-sub">30-day quote lock · Deposit only · 170 MPH wind certified · Optional 180 MPH</div>
+        <form id="quoteFormEmbed" class="qf">
+          <div class="qf-row">
+            <div class="qf-field"><label>Name</label><input type="text" name="name" required autocomplete="name"></div>
+            <div class="qf-field"><label>Phone <span class="opt">(fastest response)</span></label><input type="tel" name="phone" autocomplete="tel"></div>
+          </div>
+          <div class="qf-row">
+            <div class="qf-field"><label>Email</label><input type="email" name="email" required autocomplete="email"></div>
+            <div class="qf-field"><label>ZIP code</label><input type="text" name="zip" required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code"></div>
+          </div>
+          <div class="qf-row">
+            <div class="qf-field full"><label>What are you looking to build?</label><input type="text" name="buildingType" placeholder="e.g. 30×40 garage, 2 roll-up doors"></div>
+          </div>
+          <div class="qf-row">
+            <div class="qf-field full"><label>Notes / questions <span class="opt">(optional)</span></label><textarea name="notes" placeholder="Tell us anything else — site conditions, timing, options, concerns…"></textarea></div>
+          </div>
+          <input type="hidden" name="_source" value="embed">
+          <button type="submit" class="qf-submit">Get My Quote →</button>
+          <div class="qf-trust">
+            <span>30-day quote lock</span>
+            <span>Deposit only</span>
+            <span>No hidden fees</span>
+          </div>
+          <div class="qf-status" id="quoteFormEmbedStatus"></div>
+        </form>
+      </div>
+
+      <!-- RIGHT: call card -->
+      <div class="quote-call-card">
+        <div class="quote-call-eyebrow">Rather Talk Live?</div>
+        <h4>Call us — we pick up.</h4>
+        <a href="tel:8884078335" class="quote-call-num">(888) 407-8335</a>
+        <div class="quote-call-hours">Mon–Sat · 8am–6pm ET</div>
+        <a href="tel:8884078335" class="quote-call-btn">📞 Call Now</a>
+      </div>
     </div>
   </div>
 </section>
@@ -2096,6 +2452,293 @@ footer {
     </div>
   </div>
 </footer>
+
+<!-- ============ QUOTE MODAL (Get a Quote / Get Local Price / Ask Us) ============ -->
+<div class="modal-overlay" id="quoteModal" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+  <div class="modal-box">
+    <button class="modal-close" data-modal-close="quoteModal" aria-label="Close">×</button>
+    <div class="modal-header">
+      <div class="modal-eyebrow" id="quoteModalEyebrow">Free Quote · 60 Seconds</div>
+      <h3 id="quoteModalTitle">Get your <span class="accent">turnkey</span> quote.</h3>
+      <p id="quoteModalSub">170 MPH wind certified · Optional 180 MPH · Deposit only · 30-day quote lock</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-call-strip">
+        <div class="modal-call-strip-left">Rather just talk?<strong>(888) 407-8335 · Mon–Sat 8–6 ET</strong></div>
+        <a href="tel:8884078335">📞 Call Now</a>
+      </div>
+      <div class="modal-or">— or fill it out —</div>
+      <form id="quoteFormModal" class="qf">
+        <div class="qf-row">
+          <div class="qf-field"><label>Name</label><input type="text" name="name" required autocomplete="name"></div>
+          <div class="qf-field"><label>Phone <span class="opt">(fastest)</span></label><input type="tel" name="phone" autocomplete="tel"></div>
+        </div>
+        <div class="qf-row">
+          <div class="qf-field"><label>Email</label><input type="email" name="email" required autocomplete="email"></div>
+          <div class="qf-field"><label>ZIP</label><input type="text" name="zip" required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code"></div>
+        </div>
+        <div class="qf-row">
+          <div class="qf-field full"><label id="quoteModalBuildingLabel">What are you looking to build?</label><input type="text" name="buildingType" id="quoteModalBuildingInput" placeholder="e.g. 30×40 garage, 2 roll-up doors"></div>
+        </div>
+        <div class="qf-row">
+          <div class="qf-field full"><label id="quoteModalNotesLabel">Notes / questions <span class="opt">(optional)</span></label><textarea name="notes" placeholder="Anything else we should know?"></textarea></div>
+        </div>
+        <input type="hidden" name="_source" id="quoteModalSource" value="modal">
+        <button type="submit" class="qf-submit" id="quoteModalSubmit">Get My Quote →</button>
+        <div class="qf-status" id="quoteFormModalStatus"></div>
+        <div class="modal-foot">No spam. We use your info to quote your build — that's it.</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FREE GUIDE MODAL (lead magnet capture) ============ -->
+<div class="modal-overlay" id="guideModal" role="dialog" aria-modal="true" aria-labelledby="guideModalTitle">
+  <div class="modal-box">
+    <button class="modal-close" data-modal-close="guideModal" aria-label="Close">×</button>
+    <div class="modal-header">
+      <div class="modal-eyebrow">📘 Free Buyer's Guide</div>
+      <h3 id="guideModalTitle">Before you sign with an <span class="accent">out-of-region</span> dealer.</h3>
+      <p>8 reasons. 7 pages. Sent straight to your inbox. The guide every Florida steel-building shopper should read first.</p>
+    </div>
+    <div class="modal-body">
+      <form id="guideForm" class="qf">
+        <div class="qf-row">
+          <div class="qf-field full"><label>Name</label><input type="text" name="name" required autocomplete="name"></div>
+        </div>
+        <div class="qf-row">
+          <div class="qf-field full"><label>Email <span class="opt">(we'll send the PDF here)</span></label><input type="email" name="email" required autocomplete="email"></div>
+        </div>
+        <div class="qf-row">
+          <div class="qf-field full"><label>Phone <span class="opt">(optional — for fastest help if you have questions)</span></label><input type="tel" name="phone" autocomplete="tel"></div>
+        </div>
+        <button type="submit" class="qf-submit" id="guideSubmit">Send Me the Guide →</button>
+        <div class="qf-status" id="guideFormStatus"></div>
+        <div class="modal-foot">No spam. Unsubscribe anytime.</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   Cat 5 Steel Buildings — Forms wiring
+   - Quote modal: Header "Get a Quote", Plan card "Get Local Price", "Ask Us"
+   - Embedded form: #quote section
+   - Guide modal: FREE GUIDE button (top utility bar)
+   - Posts to: /.netlify/functions/create-hubspot-contact
+   ============================================================ */
+(function () {
+  const ENDPOINT = '/.netlify/functions/create-hubspot-contact';
+  const PDF_URL  = 'cat5-buyers-warning.pdf';
+
+  // --- Modal open/close ---
+  function openModal(id) {
+    const m = document.getElementById(id);
+    if (!m) return;
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // focus first input
+    const firstInput = m.querySelector('input, textarea');
+    if (firstInput) setTimeout(() => firstInput.focus(), 80);
+  }
+  function closeModal(id) {
+    const m = document.getElementById(id);
+    if (!m) return;
+    m.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Close: × button, click on overlay, Escape
+  document.querySelectorAll('[data-modal-close]').forEach(btn => {
+    btn.addEventListener('click', e => closeModal(btn.getAttribute('data-modal-close')));
+  });
+  document.querySelectorAll('.modal-overlay').forEach(o => {
+    o.addEventListener('click', e => { if (e.target === o) closeModal(o.id); });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(o => closeModal(o.id));
+  });
+
+  // --- Plan-card context grabber: walk up DOM, pull model + size ---
+  function getPlanContext(triggerEl) {
+    const variant = triggerEl.closest('.plan-variant');
+    if (!variant) return null;
+    const name = variant.querySelector('.plan-name')?.textContent.trim() || '';
+    const eyebrow = variant.querySelector('.plan-eyebrow')?.textContent.trim() || '';
+    const doors = variant.querySelector('.plan-doors')?.textContent.trim() || '';
+    const price = variant.querySelector('.amount')?.textContent.trim().replace(/\*/g, '') || '';
+    // Climb to group head for size (e.g. "24' × 30' × 9' — The Compact Line")
+    let size = '';
+    const group = variant.closest('.plan-group, section, .section');
+    if (group) {
+      const h3 = group.querySelector('.plan-group-head h3, h3');
+      if (h3) {
+        const txt = h3.textContent.trim();
+        const m = txt.match(/[\d']+\s*[×x]\s*[\d']+(?:\s*[×x]\s*[\d']+)?/);
+        if (m) size = m[0];
+      }
+    }
+    return { name, eyebrow, doors, price, size };
+  }
+
+  // --- Trigger handlers ---
+  document.querySelectorAll('[data-form-trigger]').forEach(el => {
+    el.addEventListener('click', function (e) {
+      const trigger = el.getAttribute('data-form-trigger');
+
+      if (trigger === 'guide') {
+        e.preventDefault();
+        openModal('guideModal');
+        return;
+      }
+
+      if (trigger === 'quote' || trigger === 'ask') {
+        e.preventDefault();
+        // Reset modal state
+        const eyebrow  = document.getElementById('quoteModalEyebrow');
+        const title    = document.getElementById('quoteModalTitle');
+        const sub      = document.getElementById('quoteModalSub');
+        const buildLbl = document.getElementById('quoteModalBuildingLabel');
+        const buildInp = document.getElementById('quoteModalBuildingInput');
+        const submit   = document.getElementById('quoteModalSubmit');
+        const sourceIn = document.getElementById('quoteModalSource');
+
+        // Defaults
+        eyebrow.textContent = 'Free Quote · 60 Seconds';
+        title.innerHTML = 'Get your <span class="accent">turnkey</span> quote.';
+        sub.textContent = '170 MPH wind certified · Optional 180 MPH · Deposit only · 30-day quote lock';
+        buildLbl.textContent = 'What are you looking to build?';
+        buildInp.value = '';
+        buildInp.placeholder = 'e.g. 30×40 garage, 2 roll-up doors';
+        submit.textContent = 'Get My Quote →';
+
+        // Pull plan context if click came from a plan card
+        const ctx = getPlanContext(el);
+        if (ctx && ctx.name) {
+          const summary = [ctx.size, ctx.name, ctx.eyebrow].filter(Boolean).join(' · ');
+          buildInp.value = summary;
+        }
+
+        // Ask Us: switch framing to question-first
+        if (trigger === 'ask') {
+          eyebrow.textContent = 'Ask Us Anything';
+          title.innerHTML = 'Got a <span class="accent">question?</span>';
+          sub.textContent = 'Drop your question below — or just call. We answer fast.';
+          buildLbl.textContent = 'Building you have a question about';
+          submit.textContent = 'Send My Question →';
+          sourceIn.value = ctx ? 'plan-ask:' + (ctx.name || '') : 'ask';
+        } else {
+          sourceIn.value = ctx ? 'plan-quote:' + (ctx.name || '') : 'header-quote';
+        }
+
+        openModal('quoteModal');
+      }
+    });
+  });
+
+  // --- Form submission helper ---
+  async function submitForm(form, statusEl, opts) {
+    opts = opts || {};
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    statusEl.className = 'qf-status';
+    statusEl.textContent = '';
+
+    const fd = new FormData(form);
+    const payload = {
+      name: (fd.get('name') || '').toString().trim(),
+      email: (fd.get('email') || '').toString().trim(),
+      phone: (fd.get('phone') || '').toString().trim(),
+      zip: (fd.get('zip') || '').toString().trim(),
+      buildingType: (fd.get('buildingType') || '').toString().trim()
+    };
+    const notes  = (fd.get('notes') || '').toString().trim();
+    const source = (fd.get('_source') || '').toString().trim();
+
+    // Build quote_details — this is what shows up in HubSpot's notes
+    const lines = [];
+    lines.push('Source: ' + (source || 'website'));
+    lines.push('Priority: ' + (payload.phone ? 'HOT - Call ASAP' : 'WARM - Email Quote'));
+    if (payload.buildingType) lines.push('Building Interest: ' + payload.buildingType);
+    if (payload.zip) lines.push('ZIP: ' + payload.zip);
+    if (notes) lines.push('\nNotes:\n' + notes);
+    if (opts.extraNote) lines.push('\n' + opts.extraNote);
+    payload.quote_details = lines.join('\n');
+
+    try {
+      const r = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!r.ok) {
+        const errBody = await r.json().catch(() => ({}));
+        console.error('Form submit failed:', errBody);
+        throw new Error('Server returned ' + r.status);
+      }
+      // Success
+      statusEl.classList.add('show', 'success');
+      statusEl.textContent = opts.successMessage || '✓ Got it! We\'ll reach out fast. Check your phone/email shortly.';
+      submitBtn.textContent = '✓ Sent';
+      form.reset();
+      if (opts.onSuccess) opts.onSuccess();
+      return true;
+    } catch (err) {
+      console.error(err);
+      statusEl.classList.add('show', 'error');
+      statusEl.textContent = '⚠ Couldn\'t send. Please call us at (888) 407-8335 or try again.';
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+      return false;
+    }
+  }
+
+  // --- Wire embedded quote form ---
+  const embedForm = document.getElementById('quoteFormEmbed');
+  if (embedForm) {
+    embedForm.addEventListener('submit', e => {
+      e.preventDefault();
+      submitForm(embedForm, document.getElementById('quoteFormEmbedStatus'));
+    });
+  }
+
+  // --- Wire modal quote form ---
+  const modalForm = document.getElementById('quoteFormModal');
+  if (modalForm) {
+    modalForm.addEventListener('submit', e => {
+      e.preventDefault();
+      submitForm(modalForm, document.getElementById('quoteFormModalStatus'), {
+        onSuccess: () => {
+          // Close modal after 2.5s on success
+          setTimeout(() => closeModal('quoteModal'), 2500);
+        }
+      });
+    });
+  }
+
+  // --- Wire FREE GUIDE form (lead magnet) ---
+  const guideForm = document.getElementById('guideForm');
+  if (guideForm) {
+    guideForm.addEventListener('submit', e => {
+      e.preventDefault();
+      submitForm(guideForm, document.getElementById('guideFormStatus'), {
+        extraNote: '*** FREE GUIDE DOWNLOAD — Lead Magnet ***\nDelivered: cat5-buyers-warning.pdf',
+        successMessage: '✓ Sending the guide now — opening your download…',
+        onSuccess: () => {
+          // Trigger PDF download/open
+          setTimeout(() => {
+            window.open(PDF_URL, '_blank');
+          }, 600);
+          // Close modal after a moment
+          setTimeout(() => closeModal('guideModal'), 2500);
+        }
+      });
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
