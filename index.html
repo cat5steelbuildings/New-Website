@@ -478,6 +478,35 @@ nav.main a:hover { color: var(--orange-glow); }
   color: rgba(255,255,255,0.7);
   font-weight: 500;
 }
+
+/* Plan hero — starburst image at top of each plan group */
+.plan-hero {
+  position: relative;
+  width: 100%;
+  background: var(--navy-deep);
+  overflow: hidden;
+  line-height: 0; /* eliminate inline-image gap */
+}
+.plan-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.plan-hero-caption {
+  background: var(--navy-deep);
+  color: rgba(255,255,255,0.78);
+  font-size: 12px;
+  text-align: center;
+  padding: 10px 24px 12px;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.plan-hero-caption strong { color: var(--orange-glow); font-weight: 700; }
+@media (max-width: 600px) {
+  .plan-hero-caption { font-size: 11px; padding: 9px 14px 10px; }
+}
 .popular-tag {
   display: inline-flex; align-items: center; gap: 6px;
   background: var(--orange); color: white;
@@ -1705,6 +1734,12 @@ footer {
 
       <!-- 24×30 -->
       <div class="plan-group">
+        <div class="plan-hero">
+          <img src="plan-compact-hero.jpg" alt="The Compact — Complete Package from $309/mo">
+        </div>
+        <div class="plan-hero-caption">
+          Complete package: <strong>building + tax + concrete</strong> · FL only · with approved credit
+        </div>
         <div class="plan-group-head">
           <div>
             <h3>24' × 30' × 10' <span class="accent">— The Compact Line</span></h3>
@@ -1785,6 +1820,12 @@ footer {
 
       <!-- 30×40 FLAGSHIP -->
       <div class="plan-group">
+        <div class="plan-hero">
+          <img src="plan-standard-hero.jpg" alt="The Standard — Complete Package from $414/mo">
+        </div>
+        <div class="plan-hero-caption">
+          Complete package: <strong>building + tax + concrete</strong> · FL only · with approved credit
+        </div>
         <div class="plan-group-head">
           <div>
             <h3>30' × 40' × 12' <span class="accent">— The Standard Line</span></h3>
@@ -1866,6 +1907,12 @@ footer {
 
       <!-- 30×50 -->
       <div class="plan-group">
+        <div class="plan-hero">
+          <img src="plan-plus-hero.jpg" alt="The Plus — Complete Package from $556/mo">
+        </div>
+        <div class="plan-hero-caption">
+          Complete package: <strong>building + tax + concrete</strong> · FL only · with approved credit
+        </div>
         <div class="plan-group-head">
           <div>
             <h3>30' × 50' × 12' <span class="accent">— The Plus Line</span></h3>
