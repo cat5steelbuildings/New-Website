@@ -674,7 +674,7 @@ nav.main a:hover { color: var(--orange-glow); }
 }
 .plan-cta-tertiary:hover { border-color: var(--orange); color: var(--orange); }
 
-/* SPECIALTY */
+/* SPECIALTY — restructured as 3 mini-rows (Option B) */
 .specialty-plans {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -691,6 +691,146 @@ nav.main a:hover { color: var(--orange-glow); }
 .specialty-plan:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 50px -15px rgba(17, 35, 65, 0.2);
+}
+
+/* Specialty single-card layout (one per mini-row) */
+.specialty-single {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0;
+  background: white;
+  border: 1px solid var(--steel-200);
+}
+.specialty-single .plan-photo {
+  position: relative;
+  background: #f5f6f8;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.specialty-single .plan-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 24px;
+}
+.specialty-single .plan-photo .cert-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+.specialty-single .plan-body {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 800px) {
+  .specialty-single { grid-template-columns: 1fr; }
+  .specialty-single .plan-photo { min-height: 240px; }
+  .specialty-single .plan-body { padding: 28px 24px; }
+}
+
+/* CONCRETE ADDON BLOCK — sits under each row */
+.concrete-addon {
+  background: linear-gradient(180deg, var(--steel-50) 0%, #ecf0f5 100%);
+  border-top: 3px solid var(--orange);
+  padding: 28px 32px;
+  margin-bottom: 60px;
+  border-radius: 0 0 4px 4px;
+}
+.concrete-addon-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: center;
+}
+.concrete-addon-icon {
+  width: 56px; height: 56px;
+  background: var(--orange);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+.concrete-addon-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.concrete-addon-eyebrow {
+  font-family: 'Archivo', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange-deep);
+}
+.concrete-addon-name {
+  font-family: 'Archivo', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.25;
+}
+.concrete-addon-name .price {
+  color: var(--orange-deep);
+}
+.concrete-addon-spec {
+  font-size: 13px;
+  color: var(--steel-600);
+  margin-top: 2px;
+}
+.concrete-addon-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  min-width: 200px;
+}
+.concrete-addon-cta a {
+  display: block;
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 13px 18px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.concrete-addon-cta a:hover { background: var(--navy-soft); }
+.concrete-addon-cta .micro {
+  font-size: 10px;
+  color: var(--steel-500);
+  font-style: italic;
+  text-align: center;
+  line-height: 1.4;
+}
+.concrete-disclaimer {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(17, 35, 65, 0.08);
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: var(--steel-600);
+}
+.concrete-disclaimer strong { color: var(--navy); font-weight: 700; }
+
+@media (max-width: 800px) {
+  .concrete-addon { padding: 22px 20px; margin-bottom: 40px; }
+  .concrete-addon-inner { grid-template-columns: 1fr; gap: 16px; text-align: center; }
+  .concrete-addon-icon { margin: 0 auto; }
+  .concrete-addon-cta { min-width: 0; }
 }
 
 /* BUILDER */
@@ -1743,7 +1883,7 @@ footer {
           <img src="plan-compact-hero.jpg" alt="The Compact — Complete Package from $309/mo">
         </div>
         <div class="plan-hero-caption">
-          Complete package: <strong>building + tax + concrete</strong> · FL only · with approved credit
+          Complete package: <strong>building + concrete</strong> · FL only · with approved credit
         </div>
         <div class="plan-group-head">
           <div>
@@ -1821,6 +1961,25 @@ footer {
             </div>
           </div>
         </div>
+
+        <!-- Concrete addon for Compact row -->
+        <div class="concrete-addon">
+          <div class="concrete-addon-inner">
+            <div class="concrete-addon-icon">▦</div>
+            <div class="concrete-addon-text">
+              <div class="concrete-addon-eyebrow">Add Concrete Pad — a convenience add</div>
+              <div class="concrete-addon-name">720 sqft pad <span class="price">$10,895</span></div>
+              <div class="concrete-addon-spec">4" reinforced footer & slab · ground prep · excavation · haul-off included</div>
+            </div>
+            <div class="concrete-addon-cta">
+              <a href="#" data-form-trigger="quote">Add Concrete to Quote</a>
+              <span class="micro">Subcontracted via Metal America. Subject to change.</span>
+            </div>
+          </div>
+          <div class="concrete-disclaimer">
+            <strong>About this add-on:</strong> Concrete is a convenience service we coordinate through our subcontractor, Metal America, who bills you directly. Because materials, labor, and site conditions are outside our control, concrete pricing is subject to change without notice. Pricing assumes site is less than 3% grade, cleared, with no obstructions. Not taxable through Cat 5. We encourage you to compare local concrete contractors — we're here to make turn-key easy, not to lock you in.
+          </div>
+        </div>
       </div>
 
       <!-- 30×40 FLAGSHIP -->
@@ -1829,7 +1988,7 @@ footer {
           <img src="plan-standard-hero.jpg" alt="The Standard — Complete Package from $414/mo">
         </div>
         <div class="plan-hero-caption">
-          Complete package: <strong>building + tax + concrete</strong> · FL only · with approved credit
+          Complete package: <strong>building + concrete</strong> · FL only · with approved credit
         </div>
         <div class="plan-group-head">
           <div>
@@ -1908,15 +2067,34 @@ footer {
             </div>
           </div>
         </div>
+
+        <!-- Concrete addon for Standard row -->
+        <div class="concrete-addon">
+          <div class="concrete-addon-inner">
+            <div class="concrete-addon-icon">▦</div>
+            <div class="concrete-addon-text">
+              <div class="concrete-addon-eyebrow">Add Concrete Pad — a convenience add</div>
+              <div class="concrete-addon-name">1,235 sqft pad <span class="price">$14,242</span></div>
+              <div class="concrete-addon-spec">4" reinforced footer & slab · ground prep · excavation · haul-off included</div>
+            </div>
+            <div class="concrete-addon-cta">
+              <a href="#" data-form-trigger="quote">Add Concrete to Quote</a>
+              <span class="micro">Subcontracted via Metal America. Subject to change.</span>
+            </div>
+          </div>
+          <div class="concrete-disclaimer">
+            <strong>About this add-on:</strong> Concrete is a convenience service we coordinate through our subcontractor, Metal America, who bills you directly. Because materials, labor, and site conditions are outside our control, concrete pricing is subject to change without notice. Pricing assumes site is less than 3% grade, cleared, with no obstructions. Not taxable through Cat 5. We encourage you to compare local concrete contractors — we're here to make turn-key easy, not to lock you in.
+          </div>
+        </div>
       </div>
 
       <!-- 30×50 -->
       <div class="plan-group">
         <div class="plan-hero">
-          <img src="plan-plus-hero.jpg" alt="The Plus — Complete Package from $556/mo">
+          <img src="plan-plus-hero.jpg" alt="The Plus — Complete Package from $523/mo">
         </div>
         <div class="plan-hero-caption">
-          Complete package: <strong>building + tax + concrete</strong> · FL only · with approved credit
+          Complete package: <strong>building + concrete</strong> · FL only · with approved credit
         </div>
         <div class="plan-group-head">
           <div>
@@ -1993,84 +2171,207 @@ footer {
             </div>
           </div>
         </div>
+
+        <!-- Concrete addon for Plus row -->
+        <div class="concrete-addon">
+          <div class="concrete-addon-inner">
+            <div class="concrete-addon-icon">▦</div>
+            <div class="concrete-addon-text">
+              <div class="concrete-addon-eyebrow">Add Concrete Pad — a convenience add</div>
+              <div class="concrete-addon-name">1,500 sqft pad <span class="price">$17,758</span></div>
+              <div class="concrete-addon-spec">4" reinforced footer & slab · ground prep · excavation · haul-off included</div>
+            </div>
+            <div class="concrete-addon-cta">
+              <a href="#" data-form-trigger="quote">Add Concrete to Quote</a>
+              <span class="micro">Subcontracted via Metal America. Subject to change.</span>
+            </div>
+          </div>
+          <div class="concrete-disclaimer">
+            <strong>About this add-on:</strong> Concrete is a convenience service we coordinate through our subcontractor, Metal America, who bills you directly. Because materials, labor, and site conditions are outside our control, concrete pricing is subject to change without notice. Pricing assumes site is less than 3% grade, cleared, with no obstructions. Not taxable through Cat 5. We encourage you to compare local concrete contractors — we're here to make turn-key easy, not to lock you in.
+          </div>
+        </div>
       </div>
 
     </div>
 
-    <!-- SPECIALTY -->
+    <!-- SPECIALTY — Option B: 3 mini-rows, each its own hero + concrete addon -->
     <div class="section-head" style="margin-top: 80px;">
       <div class="eyebrow" style="justify-content: center;">Specialty Builds</div>
       <h2>For when you need <span class="accent">more.</span></h2>
       <p>Heavy-duty configurations for shops, equipment storage, and commercial use.</p>
     </div>
 
-    <div class="specialty-plans">
-      <div class="specialty-plan">
+    <!-- ============================================ -->
+    <!-- WORKSHOP MINI-ROW                            -->
+    <!-- ============================================ -->
+    <div class="plan-group" style="margin-top: 50px;">
+      <div class="plan-hero">
+        <img src="plan-workshop-hero.jpg" alt="The Workshop — Complete Package from $448/mo">
+      </div>
+      <div class="plan-hero-caption">
+        Complete package: <strong>building + concrete</strong> · FL only · with approved credit
+      </div>
+      <div class="plan-group-head">
+        <div>
+          <h3>24' × 35' × 10' + 12' lean-to <span class="accent">— The Workshop</span></h3>
+          <div class="group-sub">Three-bay shop with covered work bay. Built to work.</div>
+        </div>
+      </div>
+
+      <div class="specialty-single">
         <div class="plan-photo">
-          <img src="plan-workshop.jpg" alt="The Workshop">
+          <img src="plan-workshop.jpg" alt="The Workshop CAD render">
           <div class="cert-badge">Cat 5 Certified</div>
         </div>
         <div class="plan-body">
-          <div class="plan-eyebrow">40' × 40' × 12'</div>
+          <div class="plan-eyebrow">2 RU + Lean-to</div>
           <h4 class="plan-name">The Workshop</h4>
-          <div class="plan-doors">2 roll-ups · 1 walk · 3 windows · 170 MPH · Optional 180 MPH</div>
+          <div class="plan-doors">(2) 8×8 RU + walk · 12'×35' covered lean-to · 170 MPH · Optional 180 MPH</div>
           <div class="plan-price">
-            
-            <div class="amount">$17,102<span class="star">*</span></div>
+            <div class="amount">$16,407<span class="star">*</span></div>
             <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
           </div>
           <div class="plan-ctas">
             <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">🔒 Lock My Price</a>
-            <a href="#builder" class="plan-cta plan-cta-secondary">Edit This Plan</a>
+            <a href="https://share.idearoom.com/4eb5bce85c3e032a4333d759ebd2d813" class="plan-cta plan-cta-secondary" target="_blank" rel="noopener">Edit This Plan</a>
             <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
             <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
           </div>
         </div>
       </div>
 
-      <div class="specialty-plan">
+      <!-- Concrete addon for Workshop -->
+      <div class="concrete-addon">
+        <div class="concrete-addon-inner">
+          <div class="concrete-addon-icon">▦</div>
+          <div class="concrete-addon-text">
+            <div class="concrete-addon-eyebrow">Add Concrete Pad — a convenience add</div>
+            <div class="concrete-addon-name">1,260 sqft full pad <span class="price">$14,972</span></div>
+            <div class="concrete-addon-spec">4" reinforced footer & slab · pad covers main building + lean-to · ground prep · excavation · haul-off included</div>
+          </div>
+          <div class="concrete-addon-cta">
+            <a href="#" data-form-trigger="quote">Add Concrete to Quote</a>
+            <span class="micro">Subcontracted via Metal America. Subject to change.</span>
+          </div>
+        </div>
+        <div class="concrete-disclaimer">
+          <strong>About this add-on:</strong> Concrete is a convenience service we coordinate through our subcontractor, Metal America, who bills you directly. Because materials, labor, and site conditions are outside our control, concrete pricing is subject to change without notice. Pricing assumes site is less than 3% grade, cleared, with no obstructions. Not taxable through Cat 5. We encourage you to compare local concrete contractors — we're here to make turn-key easy, not to lock you in.
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- PRO SHOP MINI-ROW                            -->
+    <!-- ============================================ -->
+    <div class="plan-group">
+      <div class="plan-hero">
+        <img src="plan-proshop-hero.jpg" alt="The Pro Shop — Complete Package from $572/mo">
+      </div>
+      <div class="plan-hero-caption">
+        Complete package: <strong>building + concrete</strong> · FL only · with approved credit
+      </div>
+      <div class="plan-group-head">
+        <div>
+          <h3>30' × 50' × 12' <span class="accent">— The Pro Shop</span></h3>
+          <div class="group-sub">Mixed-door pro setup. Where the work gets done.</div>
+        </div>
+      </div>
+
+      <div class="specialty-single">
         <div class="plan-photo">
-          <img src="plan-proshop.jpg" alt="The Pro Shop">
+          <img src="plan-proshop.jpg" alt="The Pro Shop CAD render">
           <div class="cert-badge">Cat 5 Certified</div>
         </div>
         <div class="plan-body">
-          <div class="plan-eyebrow">40' × 60' × 12'</div>
+          <div class="plan-eyebrow">3 RU + Walk + Window</div>
           <h4 class="plan-name">The Pro Shop</h4>
-          <div class="plan-doors">3 roll-ups · 1 walk · 4 windows · 170 MPH · Optional 180 MPH</div>
+          <div class="plan-doors">(1) 10×10 RU + (2) 8×8 RU + walk + window · 170 MPH · Optional 180 MPH</div>
           <div class="plan-price">
-            
-            <div class="amount">$30,000<span class="star">*</span></div>
-            <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
+            <div class="amount">$22,210<span class="star">*</span></div>
           </div>
           <div class="plan-ctas">
             <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">🔒 Lock My Price</a>
-            <a href="#builder" class="plan-cta plan-cta-secondary">Edit This Plan</a>
+            <a href="https://share.idearoom.com/19b908a8e3fd5cf03e1ed38a1f2852a4" class="plan-cta plan-cta-secondary" target="_blank" rel="noopener">Edit This Plan</a>
             <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
             <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
           </div>
         </div>
       </div>
 
-      <div class="specialty-plan">
+      <!-- Concrete addon for Pro Shop (same 30×50 footprint as Plus row = $17,758) -->
+      <div class="concrete-addon">
+        <div class="concrete-addon-inner">
+          <div class="concrete-addon-icon">▦</div>
+          <div class="concrete-addon-text">
+            <div class="concrete-addon-eyebrow">Add Concrete Pad — a convenience add</div>
+            <div class="concrete-addon-name">1,500 sqft pad <span class="price">$17,758</span></div>
+            <div class="concrete-addon-spec">4" reinforced footer & slab · ground prep · excavation · haul-off included</div>
+          </div>
+          <div class="concrete-addon-cta">
+            <a href="#" data-form-trigger="quote">Add Concrete to Quote</a>
+            <span class="micro">Subcontracted via Metal America. Subject to change.</span>
+          </div>
+        </div>
+        <div class="concrete-disclaimer">
+          <strong>About this add-on:</strong> Concrete is a convenience service we coordinate through our subcontractor, Metal America, who bills you directly. Because materials, labor, and site conditions are outside our control, concrete pricing is subject to change without notice. Pricing assumes site is less than 3% grade, cleared, with no obstructions. Not taxable through Cat 5. We encourage you to compare local concrete contractors — we're here to make turn-key easy, not to lock you in.
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- COMMANDER MINI-ROW                           -->
+    <!-- ============================================ -->
+    <div class="plan-group">
+      <div class="plan-hero">
+        <img src="plan-commander-hero.jpg" alt="The Commander — Complete Package from $689/mo">
+      </div>
+      <div class="plan-hero-caption">
+        Complete package: <strong>building + concrete</strong> · FL only · with approved credit
+      </div>
+      <div class="plan-group-head">
+        <div>
+          <h3>30' × 60' × 14' <span class="accent">— The Commander</span></h3>
+          <div class="group-sub">Commercial-grade clearance. The flagship.</div>
+        </div>
+      </div>
+
+      <div class="specialty-single">
         <div class="plan-photo">
-          <img src="plan-commander.jpg" alt="The Commander">
+          <img src="plan-commander.jpg" alt="The Commander CAD render">
           <div class="cert-badge">Cat 5 Certified</div>
         </div>
         <div class="plan-body">
-          <div class="plan-eyebrow">50' × 60' × 14'+</div>
+          <div class="plan-eyebrow">4 Doors · 14' Eave</div>
           <h4 class="plan-name">The Commander</h4>
-          <div class="plan-doors">Custom config · 14ft+ eave · 12-gauge</div>
+          <div class="plan-doors">(1) 12×14 chain hoist + (3) 10×10 RU + walk · 14' eave · 170 MPH · Optional 180 MPH</div>
           <div class="plan-price">
-            
-            <div class="amount">$45,000<span class="star">*</span></div>
-            <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
+            <div class="amount">$26,885<span class="star">*</span></div>
           </div>
           <div class="plan-ctas">
             <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">🔒 Lock My Price</a>
-            <a href="#builder" class="plan-cta plan-cta-secondary">Edit This Plan</a>
+            <a href="https://share.idearoom.com/11f3bd89da97ffa9587d8859ed5c760c" class="plan-cta plan-cta-secondary" target="_blank" rel="noopener">Edit This Plan</a>
             <a href="#" class="plan-cta plan-cta-tertiary">More Details</a>
             <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
           </div>
+        </div>
+      </div>
+
+      <!-- Concrete addon for Commander -->
+      <div class="concrete-addon">
+        <div class="concrete-addon-inner">
+          <div class="concrete-addon-icon">▦</div>
+          <div class="concrete-addon-text">
+            <div class="concrete-addon-eyebrow">Add Concrete Pad — a convenience add</div>
+            <div class="concrete-addon-name">1,800 sqft pad <span class="price">$21,257</span></div>
+            <div class="concrete-addon-spec">4" reinforced footer & slab · ground prep · excavation · haul-off included</div>
+          </div>
+          <div class="concrete-addon-cta">
+            <a href="#" data-form-trigger="quote">Add Concrete to Quote</a>
+            <span class="micro">Subcontracted via Metal America. Subject to change.</span>
+          </div>
+        </div>
+        <div class="concrete-disclaimer">
+          <strong>About this add-on:</strong> Concrete is a convenience service we coordinate through our subcontractor, Metal America, who bills you directly. Because materials, labor, and site conditions are outside our control, concrete pricing is subject to change without notice. Pricing assumes site is less than 3% grade, cleared, with no obstructions. Not taxable through Cat 5. We encourage you to compare local concrete contractors — we're here to make turn-key easy, not to lock you in.
         </div>
       </div>
     </div>
