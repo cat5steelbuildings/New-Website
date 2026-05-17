@@ -1815,7 +1815,7 @@ footer {
         <a href="#builder" class="btn btn-outline-white btn-large">Build Your Own →</a>
       </div>
       <div class="hero-trust">
-        <span>Hurricane Rated · 170 MPH · Optional 180</span>
+        <span>Hurricane Rated · Up To 180 MPH</span>
         <span>Deposit Only</span>
         <span>Turnkey Service</span>
       </div>
@@ -1860,7 +1860,7 @@ footer {
 <!-- STATS STRIP -->
 <section class="stats">
   <div class="stats-inner">
-    <div class="stat"><div class="stat-num">170 MPH</div><div class="stat-lbl">Optional 180 MPH Wind Certified</div></div>
+    <div class="stat"><div class="stat-num">Up To 180 MPH</div><div class="stat-lbl">MPH Wind Certified</div></div>
     <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Turnkey Service</div></div>
     <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">States Served</div></div>
     <div class="stat"><div class="stat-num">$0</div><div class="stat-lbl">Hidden Fees</div></div>
@@ -2883,6 +2883,22 @@ footer {
   function openModal(id) {
     const m = document.getElementById(id);
     if (!m) return;
+    // Reset any leftover state from a prior submit
+    const status = m.querySelector('.qf-status');
+    if (status) {
+      status.textContent = '';
+      status.className = 'qf-status';
+    }
+    const form = m.querySelector('form');
+    if (form) form.reset();
+    const submitBtn = m.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      // Restore original button text from data attribute if present
+      if (submitBtn.dataset.originalText) {
+        submitBtn.textContent = submitBtn.dataset.originalText;
+      }
+    }
     m.classList.add('open');
     document.body.style.overflow = 'hidden';
     // focus first input
@@ -3022,6 +3038,10 @@ footer {
     opts = opts || {};
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.textContent;
+    // Cache original text on the element so openModal can restore it
+    if (!submitBtn.dataset.originalText) {
+      submitBtn.dataset.originalText = originalBtnText;
+    }
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
     statusEl.className = 'qf-status';
@@ -3104,16 +3124,22 @@ footer {
   if (guideForm) {
     guideForm.addEventListener('submit', e => {
       e.preventDefault();
-      submitForm(guideForm, document.getElementById('guideFormStatus'), {
+      const statusEl = document.getElementById('guideFormStatus');
+      submitForm(guideForm, statusEl, {
         extraNote: '*** FREE GUIDE DOWNLOAD — Lead Magnet ***\nDelivered: cat5-buyers-warning.pdf',
-        successMessage: '✓ Sending the guide now — opening your download…',
+        successMessage: '',  // we render a richer success block below
         onSuccess: () => {
-          // Trigger PDF download/open
-          setTimeout(() => {
-            window.open(PDF_URL, '_blank');
-          }, 600);
-          // Close modal after a moment
-          setTimeout(() => closeModal('guideModal'), 2500);
+          // Render a clickable download button (bypasses popup blockers — user click triggers it)
+          statusEl.classList.add('show', 'success');
+          statusEl.innerHTML =
+            '<div style="font-weight:700; margin-bottom:10px;">✓ You\'re in. Click below to open your guide:</div>' +
+            '<a href="' + PDF_URL + '" target="_blank" rel="noopener" ' +
+              'style="display:inline-block; padding:14px 22px; background:var(--orange-glow,#ff6b1a); color:#fff; ' +
+              'text-decoration:none; font-weight:700; border-radius:8px; font-size:16px;">' +
+              '📘 Download Your Guide</a>' +
+            '<div style="margin-top:10px; font-size:13px; opacity:0.8;">Also sent to your inbox. Check spam if you don\'t see it.</div>';
+          // Auto-close modal after 8 seconds (gives time to click the button)
+          setTimeout(() => closeModal('guideModal'), 8000);
         }
       });
     });
