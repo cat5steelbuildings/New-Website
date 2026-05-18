@@ -1446,7 +1446,18 @@ footer {
 }
 @media (max-width: 600px) {
   nav.main { display: none; }
-  .header-inner { padding: 12px 16px; }
+  .header-inner { padding: 12px 14px; gap: 10px; }
+  /* Compact header on mobile to prevent Get a Quote button overflow */
+  .brand { gap: 8px; min-width: 0; flex-shrink: 1; }
+  .brand-logo-wrap { width: 44px; height: 44px; }
+  .brand-logo-wrap img { width: 40px; height: 40px; }
+  .brand-text { font-size: 14px; white-space: normal; line-height: 1.15; }
+  .header-inner > .btn-primary {
+    padding: 9px 12px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
   .topbar-inner { padding: 0 16px; font-size: 11px; }
   .topbar .ebook { display: none; }
   .hero-ebook-mobile { display: block; }  /* Show FREE GUIDE button below hero CTAs on mobile */
