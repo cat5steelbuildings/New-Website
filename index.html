@@ -2920,6 +2920,22 @@ footer {
   function openModal(id) {
     const m = document.getElementById(id);
     if (!m) return;
+    // Reset any leftover state from a prior submit
+    const status = m.querySelector('.qf-status');
+    if (status) {
+      status.textContent = '';
+      status.innerHTML = '';
+      status.className = 'qf-status';
+    }
+    const form = m.querySelector('form');
+    if (form) form.reset();
+    const submitBtn = m.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      if (submitBtn.dataset.originalText) {
+        submitBtn.textContent = submitBtn.dataset.originalText;
+      }
+    }
     m.classList.add('open');
     document.body.style.overflow = 'hidden';
     // focus first input
@@ -3058,11 +3074,17 @@ footer {
   async function submitForm(form, statusEl, opts) {
     opts = opts || {};
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.textContent;
+    // Cache original button text on first call so we can always restore it
+    if (!submitBtn.dataset.originalText) {
+      submitBtn.dataset.originalText = submitBtn.textContent;
+    }
+    const originalBtnText = submitBtn.dataset.originalText;
+    // Reset any leftover state from a prior submission (success or error)
+    statusEl.classList.remove('show', 'success', 'error');
+    statusEl.textContent = '';
+    statusEl.innerHTML = '';
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
-    statusEl.className = 'qf-status';
-    statusEl.textContent = '';
 
     const fd = new FormData(form);
     const payload = {
@@ -3102,6 +3124,11 @@ footer {
       submitBtn.textContent = '✓ Sent';
       form.reset();
       if (opts.onSuccess) opts.onSuccess();
+      // After 5 seconds, restore the button so a SECOND submission works in the same modal
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }, 5000);
       return true;
     } catch (err) {
       console.error(err);
