@@ -584,6 +584,9 @@ nav.main a:hover { color: var(--orange-glow); }
   transition: transform 0.4s ease;
 }
 .plan-variant:hover .plan-photo img { transform: scale(1.04); }
+.plan-photo[data-form-trigger] { cursor: pointer; }
+.plan-photo[data-form-trigger]:focus { outline: 2px solid var(--orange); outline-offset: 4px; }
+.plan-photo[data-form-trigger]:active img { transform: scale(0.98); transition: transform 0.1s ease; }
 .cert-badge {
   position: absolute;
   bottom: 12px; left: 12px;
@@ -1852,7 +1855,7 @@ footer {
     <div>
       <div class="eyebrow">Hurricane Rated · Turnkey · Your 100% Satisfaction. Our Mission.</div>
       <h1>Cat 5 <span class="accent">strong.</span><br>Turnkey quote.</h1>
-      <p class="hero-sub">Family-owned. Florida, Georgia &amp; Alabama. <strong>Get a fast quote online — or a personal phone consult. Your call.</strong> We build in 170 MPH wind certification in FL, optional to 180 MPH. Turnkey from permits to install. <strong>Deposit only — pay the rest after you inspect.</strong> No pressure. <em style="color: var(--orange-glow); font-style: normal; font-weight: 700;">Your 100% satisfaction. Our mission.</em></p>
+      <p class="hero-sub">Family-owned. Florida, Georgia &amp; Alabama. <strong>Get a fast quote online — or a personal phone consult. Your call.</strong> We build in 170 MPH wind certification, optional to 180 MPH. Turnkey from permits to install. <strong>Deposit only — pay the rest after you inspect.</strong> No pressure. <em style="color: var(--orange-glow); font-style: normal; font-weight: 700;">Your 100% satisfaction. Our mission.</em></p>
       <div class="hero-ctas">
         <a href="#plans" class="btn btn-primary btn-large">Choose a Plan</a>
         <a href="#builder" class="btn btn-outline-white btn-large">Build Your Own →</a>
@@ -1939,7 +1942,7 @@ footer {
         </div>
         <div class="plan-variants">
           <div class="plan-variant">
-            <div class="plan-photo">
+            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
               <img src="plan-compact-1ru.jpg" alt="The Compact - 1 RU door">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -1961,7 +1964,7 @@ footer {
           </div>
 
           <div class="plan-variant">
-            <div class="plan-photo">
+            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
               <img src="plan-compact-2ru.jpg" alt="The Compact Duo - 2 RU doors">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -1983,7 +1986,7 @@ footer {
           </div>
 
           <div class="plan-variant">
-            <div class="plan-photo">
+            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
               <img src="plan-compact-3ru.jpg" alt="The Compact Trio - 3 RU doors">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2042,7 +2045,7 @@ footer {
         </div>
         <div class="plan-variants">
           <div class="plan-variant">
-            <div class="plan-photo">
+            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
               <img src="plan-standard-1ru.jpg" alt="The Standard">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2064,7 +2067,7 @@ footer {
           </div>
 
           <div class="plan-variant flagship">
-            <div class="plan-photo">
+            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
               <img src="plan-standard-2ru.jpg" alt="The Standard Duo">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2086,7 +2089,7 @@ footer {
           </div>
 
           <div class="plan-variant">
-            <div class="plan-photo">
+            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
               <img src="plan-standard-3ru.jpg" alt="The Standard Trio">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2144,7 +2147,7 @@ footer {
         </div>
         <div class="plan-variants">
           <div class="plan-variant">
-            <div class="plan-photo">
+            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
               <img src="plan-plus-1ru.jpg" alt="The Plus">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2166,7 +2169,7 @@ footer {
           </div>
 
           <div class="plan-variant">
-            <div class="plan-photo">
+            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
               <img src="plan-plus-2ru.jpg" alt="The Plus Duo">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2188,7 +2191,7 @@ footer {
           </div>
 
           <div class="plan-variant">
-            <div class="plan-photo">
+            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
               <img src="plan-plus-3ru.jpg" alt="The Plus Trio">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2258,7 +2261,7 @@ footer {
       </div>
 
       <div class="specialty-single">
-        <div class="plan-photo">
+        <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
           <img src="plan-workshop.jpg" alt="The Workshop CAD render">
           <div class="cert-badge">Cat 5 Certified</div>
         </div>
@@ -2316,7 +2319,7 @@ footer {
       </div>
 
       <div class="specialty-single">
-        <div class="plan-photo">
+        <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
           <img src="plan-proshop.jpg" alt="The Pro Shop CAD render">
           <div class="cert-badge">Cat 5 Certified</div>
         </div>
@@ -2373,7 +2376,7 @@ footer {
       </div>
 
       <div class="specialty-single">
-        <div class="plan-photo">
+        <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
           <img src="plan-commander.jpg" alt="The Commander CAD render">
           <div class="cert-badge">Cat 5 Certified</div>
         </div>
@@ -2989,6 +2992,15 @@ footer {
 
   // --- Trigger handlers ---
   document.querySelectorAll('[data-form-trigger]').forEach(el => {
+    // Keyboard support for non-button elements (like plan-photo divs)
+    if (el.tagName !== 'A' && el.tagName !== 'BUTTON') {
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          el.click();
+        }
+      });
+    }
     el.addEventListener('click', function (e) {
       const trigger = el.getAttribute('data-form-trigger');
 
