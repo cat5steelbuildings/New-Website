@@ -1801,6 +1801,21 @@ footer {
   .modal-body { padding: 20px 22px 24px; }
   .modal-call-strip { flex-direction: column; align-items: stretch; text-align: center; }
 }
+
+/* ===== APPLY WITH LAUNCH (FL financing CTA) ===== */
+.la-wrap{margin:0 auto;text-align:center;font-family:'Archivo',sans-serif;}
+.la-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:9px;}
+.la-eyebrow::before{content:"FL";display:inline-flex;align-items:center;justify-content:center;width:22px;height:16px;background:var(--orange);color:#fff;font-size:9px;font-weight:900;border-radius:3px;}
+.la-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:420px;padding:16px 26px;background:var(--navy);color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-radius:8px;cursor:pointer;box-shadow:0 8px 22px rgba(17,35,65,.22);transition:transform .18s,box-shadow .18s,background .18s;}
+.la-btn:hover{transform:translateY(-2px);background:var(--navy-soft);box-shadow:0 12px 28px rgba(17,35,65,.30);}
+.la-btn .arw{color:var(--orange-glow);font-weight:900;transition:transform .18s;}
+.la-btn:hover .arw{transform:translateX(4px);}
+.la-sub{margin:11px 0 0;font-size:13px;line-height:1.45;color:var(--steel-400);}
+.la-sub b{color:var(--orange);font-weight:700;}
+.la-compact .la-btn{padding:14px 22px;font-size:15px;}
+.la-compact .la-sub{font-size:12px;}
+.la-divider{display:flex;align-items:center;gap:12px;margin:18px 0 14px;color:var(--steel-400);font-size:11px;font-weight:800;letter-spacing:.12em;}
+.la-divider::before,.la-divider::after{content:"";flex:1;height:1px;background:var(--steel-200);}
 </style>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -2467,6 +2482,10 @@ footer {
           <h3 style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 28px; color: var(--navy); line-height: 1.15; margin-bottom: 14px;">Launch Credit Union — your home-state advantage.</h3>
           <p style="font-size: 15px; color: var(--steel-600); line-height: 1.6; margin-bottom: 14px;">Cat 5 has partnered with <strong style="color: var(--navy);">Launch Credit Union</strong> to offer Florida residents up to <strong>120% financing for up to 120 months at sharper-than-bank rates</strong>. Cover the building, concrete, permits, and options — all in one shot. <em style="color: var(--orange); font-style: normal; font-weight: 700;">No out-of-region dealer can match this.</em></p>
           <p style="font-size: 13px; color: var(--steel-400); font-style: italic;">Subject to credit approval through Launch CU. Florida residents only.</p>
+          <div class="la-wrap" style="text-align:left;margin-top:22px;">
+            <a class="la-btn" href="https://launchcumerchant.merchantlinq.com/customer?t=WnpXMSoxRmNBSDJOMUt4OWdoakFESUwzcUdHQlZ4ZVlyRnR6Mkd4VmNZcHhveVl3N3Y3WThBNXhvdUxQbXdKKjFMWTBWQm1VTFBSS0RYR01mSFBWNHlWNzV2RWFnYXFqbTg4R1IqU0YzaTBvRFZqVmRYbURZRjY5SnlyeVJCcioxZWFRTU1iKjFsN2RUMlJHb1g0VEV5VU8qMXF0Sjg1Sm0zMVVYNTluS3ZneFBOeW94RTRTUEJuKlNscCpTNkxTbG1TKlNpbDZKQnZsc3h3ZUNwTHIwZlIyKlNqWXNKZWc9PQ==" target="_blank" rel="noopener">Apply with Launch <span class="arw">&rarr;</span></a>
+            <p class="la-sub"><b>Florida residents</b> &mdash; apply for up to 120% financing through Launch CU. Subject to credit approval.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -2776,6 +2795,12 @@ footer {
           </div>
           <input type="hidden" name="_source" value="embed">
           <button type="submit" class="qf-submit">Get My Quote →</button>
+          <div class="la-divider">— Florida? Finance it —</div>
+          <div class="la-wrap la-compact">
+            <div class="la-eyebrow">Florida Exclusive</div>
+            <a class="la-btn" href="https://launchcumerchant.merchantlinq.com/customer?t=WnpXMSoxRmNBSDJOMUt4OWdoakFESUwzcUdHQlZ4ZVlyRnR6Mkd4VmNZcHhveVl3N3Y3WThBNXhvdUxQbXdKKjFMWTBWQm1VTFBSS0RYR01mSFBWNHlWNzV2RWFnYXFqbTg4R1IqU0YzaTBvRFZqVmRYbURZRjY5SnlyeVJCcioxZWFRTU1iKjFsN2RUMlJHb1g0VEV5VU8qMXF0Sjg1Sm0zMVVYNTluS3ZneFBOeW94RTRTUEJuKlNscCpTNkxTbG1TKlNpbDZKQnZsc3h3ZUNwTHIwZlIyKlNqWXNKZWc9PQ==" target="_blank" rel="noopener">Apply with Launch <span class="arw">&rarr;</span></a>
+            <p class="la-sub">FL residents &mdash; up to <b>120% financing, 120 months</b> through Launch CU.</p>
+          </div>
           <div class="qf-trust">
             <span>30-day quote lock</span>
             <span>Deposit only</span>
@@ -2878,6 +2903,12 @@ footer {
         </div>
         <input type="hidden" name="_source" id="quoteModalSource" value="modal">
         <button type="submit" class="qf-submit" id="quoteModalSubmit">Get My Quote →</button>
+        <div class="la-divider">— Florida? Finance it —</div>
+        <div class="la-wrap la-compact">
+          <div class="la-eyebrow">Florida Exclusive</div>
+          <a class="la-btn" href="https://launchcumerchant.merchantlinq.com/customer?t=WnpXMSoxRmNBSDJOMUt4OWdoakFESUwzcUdHQlZ4ZVlyRnR6Mkd4VmNZcHhveVl3N3Y3WThBNXhvdUxQbXdKKjFMWTBWQm1VTFBSS0RYR01mSFBWNHlWNzV2RWFnYXFqbTg4R1IqU0YzaTBvRFZqVmRYbURZRjY5SnlyeVJCcioxZWFRTU1iKjFsN2RUMlJHb1g0VEV5VU8qMXF0Sjg1Sm0zMVVYNTluS3ZneFBOeW94RTRTUEJuKlNscCpTNkxTbG1TKlNpbDZKQnZsc3h3ZUNwTHIwZlIyKlNqWXNKZWc9PQ==" target="_blank" rel="noopener">Apply with Launch <span class="arw">&rarr;</span></a>
+          <p class="la-sub">FL residents &mdash; up to <b>120% financing, 120 months</b> through Launch CU.</p>
+        </div>
         <div class="qf-status" id="quoteFormModalStatus"></div>
         <div class="modal-foot">No spam. We use your info to quote your build — that's it.</div>
       </form>
