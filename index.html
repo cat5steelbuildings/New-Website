@@ -604,6 +604,16 @@ nav.main a:hover { color: var(--orange-glow); }
   border: 1px solid rgba(17, 35, 65, 0.15);
   z-index: 2;
 }
+.bonus-ribbon {
+  position: absolute; top: 18px; right: -42px; z-index: 3;
+  width: 170px; padding: 7px 0; text-align: center;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, var(--orange-bright) 0%, var(--orange) 100%);
+  color: #fff; font-family: 'Archivo', sans-serif; font-size: 12px; font-weight: 900;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+.bonus-note { margin-top: 4px; font-size: 13px; font-weight: 700; color: var(--orange); }
 .cert-badge::before {
   content: ''; width: 6px; height: 6px;
   background: var(--green); border-radius: 50%;
@@ -2106,6 +2116,7 @@ footer {
           <div class="plan-variant">
             <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
               <img src="plan-standard-3ru.jpg" alt="The Standard Trio">
+              <div class="bonus-ribbon">Bonus Buy</div>
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
             <div class="plan-body">
@@ -2115,6 +2126,7 @@ footer {
               <div class="plan-price">
                 
                 <div class="amount">$17,439<span class="star">*</span></div>
+                <div class="bonus-note">🎁 3rd door for just $275 more than the Duo</div>
               </div>
               <div class="plan-ctas">
                 <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">🔒 Lock My Price</a>
