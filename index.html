@@ -3232,5 +3232,89 @@ footer {
 })();
 </script>
 
+<!-- 🎖️ Veterans Day Cash popup (Tim, Oct 31 2026). Runs Nov 1–30 2026 (ET). Preview any day with ?promo=1. Sign-ups go to the Quote Desk via /api/promo. -->
+<style>
+#vpBar,#vpVeil{font-family:'IBM Plex Sans',system-ui,sans-serif;color:#17212c}
+#vpVeil{position:fixed;inset:0;background:rgba(10,20,40,.62);display:none;align-items:center;justify-content:center;z-index:9999;padding:16px}
+#vpVeil.on{display:flex}
+#vpBox{background:#fff;border-radius:12px;max-width:520px;width:100%;max-height:calc(100vh - 32px);overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.4);position:relative;border-top:6px solid #b22234}
+#vpImg{display:block;width:100%;height:auto;border-radius:6px 6px 0 0}
+#vpHead{background:linear-gradient(135deg,#0a2a5c,#1f4f8f);color:#fff;padding:22px 22px 18px;text-align:center}
+#vpHead h2{font-family:'Archivo',sans-serif;font-weight:900;font-size:30px;line-height:1.05;margin:0;letter-spacing:.02em;text-transform:uppercase}
+#vpHead .amt{display:inline-block;background:#b22234;color:#fff;font-family:'Archivo',sans-serif;font-weight:900;font-size:34px;padding:4px 18px;border-radius:6px;margin:10px 0 6px}
+#vpHead p{margin:4px 0 0;font-size:15px;opacity:.95}
+#vpBody{padding:18px 22px 20px}
+#vpBody label{display:block;font-size:13px;font-weight:600;margin:10px 0 4px}
+#vpBody input[type=text],#vpBody input[type=tel],#vpBody input[type=email],#vpBody select{width:100%;box-sizing:border-box;font:16px 'IBM Plex Sans',system-ui,sans-serif;padding:10px;border:1px solid #c5ced8;border-radius:6px}
+#vpBody .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#vpBody .chk{display:flex;gap:8px;align-items:flex-start;font-weight:400;font-size:13px;margin-top:12px}
+#vpBody .chk input{margin-top:3px}
+#vpGo{width:100%;margin-top:14px;background:#b22234;color:#fff;border:0;border-radius:8px;padding:14px;font:800 18px 'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.04em;cursor:pointer}
+#vpGo:disabled{opacity:.6}
+#vpMsg{color:#b22234;font-weight:600;font-size:14px;min-height:18px;margin-top:8px}
+#vpFine{font-size:11.5px;color:#5a6776;margin-top:10px;line-height:1.4}
+#vpX{position:absolute;top:8px;right:10px;background:rgba(255,255,255,.9);border:0;border-radius:50%;width:34px;height:34px;font-size:22px;line-height:34px;cursor:pointer;color:#17212c;z-index:2}
+#vpDone{display:none;padding:26px 22px;text-align:center}
+#vpDone h3{font-family:'Archivo',sans-serif;font-size:24px;margin:0 0 8px}
+#vpDone a{display:inline-block;margin-top:14px;background:#1f4f8f;color:#fff;text-decoration:none;padding:12px 18px;border-radius:8px;font-weight:700}
+#vpBar{position:fixed;left:0;right:0;bottom:0;z-index:9998;background:#0a2a5c;color:#fff;display:none;align-items:center;gap:10px;padding:10px 12px;box-shadow:0 -4px 16px rgba(0,0,0,.25);border-top:4px solid #b22234}
+#vpBar.on{display:flex}
+#vpBar b{flex:1;font-size:14.5px;line-height:1.25}
+#vpBar button.open{background:#b22234;color:#fff;border:0;border-radius:6px;padding:10px 12px;font-weight:800;font-size:14px;white-space:nowrap}
+#vpBar button.x{background:none;border:0;color:#fff;font-size:22px;padding:0 4px}
+</style>
+<div id="vpBar" role="region" aria-label="Veterans Day Cash offer"><b>🇺🇸 Veterans Day Cash: $500 off for those who served</b><button type="button" class="open">Claim it</button><button type="button" class="x" aria-label="Close">×</button></div>
+<div id="vpVeil" role="dialog" aria-modal="true" aria-labelledby="vpTitle"><div id="vpBox">
+  <button type="button" id="vpX" aria-label="Close">×</button>
+  <img id="vpImg" src="vet-promo.jpg" alt="Veterans Day Cash — $500 off" onerror="this.remove()">
+  <div id="vpHead"><h2 id="vpTitle">🇺🇸 Veterans Day Cash</h2><div class="amt">$500 OFF</div><p>For those who served. Thank you for your service.</p><p><b>All November. Deposit by Nov 30.</b></p></div>
+  <form id="vpForm" novalidate><div id="vpBody">
+    <label for="vpName">Name</label><input type="text" id="vpName" autocomplete="name" required>
+    <div class="two"><div><label for="vpPhone">Cell</label><input type="tel" id="vpPhone" autocomplete="tel" required></div>
+      <div><label for="vpZip">Install ZIP</label><input type="text" id="vpZip" inputmode="numeric" maxlength="5" autocomplete="postal-code"></div></div>
+    <label for="vpEmail">Email</label><input type="email" id="vpEmail" autocomplete="email">
+    <label for="vpBranch">Branch of service</label><select id="vpBranch"><option value="">Choose one</option><option>Army</option><option>Navy</option><option>Air Force</option><option>Marine Corps</option><option>Coast Guard</option><option>Space Force</option><option>National Guard</option><option>Reserve</option></select>
+    <input type="text" id="vpHp" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+    <label class="chk"><input type="checkbox" id="vpVet"> I’m a veteran or serving member. I’ll show proof when I order (DD-214, VA ID, military ID or a veteran driver’s license).</label>
+    <label class="chk"><input type="checkbox" id="vpOk" checked> OK to contact me by phone, text or email about my building.</label>
+    <button type="submit" id="vpGo">Lock in my $500</button>
+    <div id="vpMsg" role="alert"></div>
+    <div id="vpFine">Veterans and active, Guard or Reserve military. Buildings $10,000 and up. Deposit by 11/30/2026. One per order. Not combinable with advertised specials or other discounts. Not redeemable for cash.</div>
+  </div></form>
+  <div id="vpDone"><h3>You’re locked in. Thank you for your service. 🇺🇸</h3><p>Your $500 is on file under your name. We’ll reach out soon. Want to see your building now?</p><a href="https://build.cat5steelbuildings.com/" target="_blank" rel="noopener">Design your building in 3D</a></div>
+</div></div>
+<script>
+(function(){
+  var START='2026-11-01', END='2026-11-30', KEY='c5_vp26', API='https://build.cat5steelbuildings.com/api/promo';
+  var q=location.search, preview=/[?&]promo=1/.test(q);
+  var d=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
+  if (!preview && (d<START || d>END)) return;
+  var st={}; try{ st=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+  if (!preview && (st.done || (st.shut && Date.now()-st.shut < 7*864e5))) return;
+  var $=function(i){return document.getElementById(i);}, veil=$('vpVeil'), bar=$('vpBar'), shown=false;
+  var mobile=window.matchMedia('(max-width: 700px)').matches;
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
+  function open(){ veil.classList.add('on'); bar.classList.remove('on'); try{ gtag('event','promo_view',{promo:'vet26'}); }catch(e){} setTimeout(function(){ $('vpName').focus(); },50); }
+  function shut(){ veil.classList.remove('on'); bar.classList.remove('on'); st.shut=Date.now(); save(); }
+  function show(){ if (shown) return; shown=true; if (mobile) bar.classList.add('on'); else open(); }
+  setTimeout(show, preview?300:10000);
+  if (!mobile) document.addEventListener('mouseout', function(e){ if (!e.relatedTarget && e.clientY<10) show(); });
+  bar.querySelector('.open').onclick=open; bar.querySelector('.x').onclick=shut; $('vpX').onclick=shut;
+  veil.addEventListener('click', function(e){ if (e.target===veil) shut(); });
+  document.addEventListener('keydown', function(e){ if (e.key==='Escape' && veil.classList.contains('on')) shut(); });
+  $('vpForm').addEventListener('submit', function(e){ e.preventDefault();
+    var m=$('vpMsg'), b=$('vpGo'), body={promo:'vet26', name:$('vpName').value.trim(), phone:$('vpPhone').value.trim(), email:$('vpEmail').value.trim(), zip:$('vpZip').value.trim(), branch:$('vpBranch').value, vet:$('vpVet').checked, agree:$('vpOk').checked, website:$('vpHp').value};
+    if (!body.name || body.phone.replace(/\D/g,'').length<10){ m.textContent='Please add your name and cell number.'; return; }
+    if (!body.vet){ m.textContent='Please check the box to confirm you served.'; return; }
+    m.textContent=''; b.disabled=true; b.textContent='Locking it in…';
+    fetch(API,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)}).then(function(r){ return r.json().then(function(j){ return {ok:r.ok, j:j}; }); })
+      .then(function(x){ if (!x.ok || !x.j.ok) throw new Error((x.j&&x.j.error)||'');
+        st.done=Date.now(); save(); $('vpForm').style.display='none'; $('vpDone').style.display='block';
+        try{ gtag('event','generate_lead',{method:'promo_vet26'}); }catch(e){} })
+      .catch(function(err){ b.disabled=false; b.textContent='Lock in my $500'; m.textContent=err.message || 'Couldn’t send that. Call (888) 407-8335 and we’ll lock it in.'; });
+  });
+})();
+</script>
+
 </body>
 </html>
