@@ -45,7 +45,7 @@ async function pull(){
         if (x.soldAt || x.removed || x.excludedFromEcommerce) continue;
         lots[x.locatedAtDealerId] = {n: x.dealerName, lat: x.dealerLat, lon: x.dealerLon, st: x.dealerState};
         items[x.inventoryId] = {id: x.inventoryId, t: x.title, w: x.width, l: x.length, p: x.price, sp: x.salePrice || 0,
-          m: Math.round(x.min_rto_price || 0), u: x.condition === 'used' ? 1 : 0, d: x.locatedAtDealerId, img: x.productImageUrl || ''};
+          m: Math.round(x.min_rto_price || 0), u: x.condition === 'used' ? 1 : 0, s: x.normalizedModel || x.model || '', d: x.locatedAtDealerId, img: x.productImageUrl || ''};
       }
       if (!n || far === n || batch.some(R => R.length < PAGE)) break;
     }

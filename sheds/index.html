@@ -112,6 +112,7 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
   <section class="filters" aria-label="Find a building">
     <div class="f"><label for="zip">Delivery ZIP</label><input id="zip" inputmode="numeric" maxlength="5" value="32055" autocomplete="postal-code"></div>
     <div class="f"><span class="flabel" id="showLbl">Show</span><div class="seg" role="group" aria-labelledby="showLbl"><button type="button" data-c="all" aria-pressed="true">All</button><button type="button" data-c="new" aria-pressed="false">New</button><button type="button" data-c="used" aria-pressed="false">Repos</button></div></div>
+    <div class="f"><label for="style">Style</label><select id="style"><option value="">All styles</option></select></div>
     <div class="f"><label for="maxmo">Up to</label><select id="maxmo"><option value="9999">Any monthly</option><option value="75">$75/mo</option><option value="100">$100/mo</option><option value="150">$150/mo</option><option value="250">$250/mo</option></select></div>
     <div class="f"><label for="sort">Sort</label><select id="sort"><option value="near">Closest lot</option><option value="lo">Lowest monthly</option><option value="big">Biggest</option></select></div>
     <div class="count" id="count" aria-live="polite"></div>
@@ -135,6 +136,10 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
   function miles(a,b,c,d){var R=3958.8,r=Math.PI/180,x=Math.sin((c-a)*r/2),y=Math.sin((d-b)*r/2);return 2*R*Math.asin(Math.sqrt(x*x+Math.cos(a*r)*Math.cos(c*r)*y*y));}
   var money=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  // Style name: Stor-Mor's model name with the plant code and size taken off ("Cabin (SME-Z3) 10 x 20" -> "Cabin").
+  function styleOf(it){ var t=String(it.s||it.t||'').replace(/_/g,' ');
+    t=t.replace(/\(.*?\)/g,' ').replace(/\b\d+\s*[x×]\s*\d+\b.*$/i,' ').replace(/[-\s]*\bZ\d\b/ig,' ').replace(/^\s*(new|used|repo)\b\s*-?/i,' ').replace(/\b(with|w\.)\s.*$/i,' ').replace(/\s+/g,' ').trim();
+    return t.replace(/\b\w/g,function(c){return c.toUpperCase();})||'Other'; }
   function town(n){ var m=/\(([^)]+)\)\s*$/.exec(n||''); return m?m[1]:(n||''); }
   var PH='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 3"><rect width="4" height="3" fill="#e3e8ef"/></svg>');
   function render(){
@@ -143,7 +148,7 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
     if(!z){ g.innerHTML='<div class="empty">Enter a Florida or Georgia ZIP to see buildings near you.</div>'; $('count').textContent=''; return; }
     var maxmo=+$('maxmo').value, rows=[];
     D.items.forEach(function(it){ var L=LOTS[it.d]; if(!L) return; var mi=miles(z[0],z[1],L.lat,L.lon);
-      if(mi>MAXMI) return; if(st.c==='new'&&it.u) return; if(st.c==='used'&&!it.u) return; if(it.m>maxmo) return;
+      if(mi>MAXMI) return; if(st.c==='new'&&it.u) return; if(st.c==='used'&&!it.u) return; if(it.m>maxmo) return; var sty=$('style').value; if(sty&&it.st!==sty) return;
       rows.push({it:it,L:L,mi:mi,fee:mi<=FREE?0:Math.round((mi-FREE)*RATE)}); });
     var s=$('sort').value; rows.sort(s==='lo'?function(a,b){return a.it.m-b.it.m;}:s==='big'?function(a,b){return b.it.w*b.it.l-a.it.w*a.it.l;}:function(a,b){return a.mi-b.mi||a.it.m-b.it.m;});
     var lotsN={}; rows.forEach(function(r){lotsN[r.it.d]=1;});
@@ -173,13 +178,15 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
     try{ if(window.fbq) fbq('track','ViewContent',{content_ids:[String(r.it.id)],value:price,currency:'USD'}); }catch(err){}
   });
   document.querySelectorAll('.seg button').forEach(function(b){ b.onclick=function(){ st.c=b.dataset.c; st.show=0; document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));}); render(); }; });
-  ['zip','maxmo','sort'].forEach(function(id){ $(id).addEventListener('input',function(){ st.show=0; render(); }); $(id).addEventListener('change',function(){ st.show=0; render(); }); });
+  ['zip','style','maxmo','sort'].forEach(function(id){ $(id).addEventListener('input',function(){ st.show=0; render(); }); $(id).addEventListener('change',function(){ st.show=0; render(); }); });
   if(/repo/i.test(location.hostname)||/[?&]show=repos/.test(location.search)){ st.c='used'; document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.c==='used'));}); }
   try{ var z0=localStorage.getItem('c5zip'); if(z0&&ZIPS[z0]) $('zip').value=z0; $('zip').addEventListener('change',function(){ try{localStorage.setItem('c5zip',$('zip').value.trim());}catch(e){} }); }catch(e){}
   $('grid').innerHTML='<div class="empty">Loading buildings from the lots…</div>';
   fetch('/api/sheds').then(function(r){ return r.json(); }).then(function(j){
     if(!j.items) throw new Error(j.error||'no data');
     D=j; LOTS={}; Object.keys(j.lots).forEach(function(k){ var L=j.lots[k]; LOTS[k]={c:town(L.n),lat:L.lat,lon:L.lon}; });
+    var SC={}; j.items.forEach(function(i){ i.st=styleOf(i); SC[i.st]=(SC[i.st]||0)+1; });
+    $('style').innerHTML='<option value="">All styles</option>'+Object.keys(SC).sort().map(function(k){return '<option>'+esc(k)+'</option>';}).join('');
     var lo=Math.min.apply(null,j.items.filter(function(i){return i.m>0;}).map(function(i){return i.m;}));
     $('h1').innerHTML='Sheds delivered to your door. <span class="big">From $'+lo+'/mo.</span>';
     var mins=Math.max(1,Math.round((Date.now()-j.at)/60000));
