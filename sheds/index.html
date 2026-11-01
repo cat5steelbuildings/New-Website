@@ -75,6 +75,8 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
 .details{display:block;text-align:center;font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;padding-top:2px}
 .details:hover{color:var(--ink);text-decoration:underline}
 .tagp s{opacity:.6;font-weight:600}
+.d3{display:inline-block;margin-top:12px;background:var(--brand);color:var(--brandInk);text-decoration:none;font:800 14px var(--display);text-transform:uppercase;letter-spacing:.05em;padding:10px 16px;border-radius:6px}
+.d3:hover{filter:brightness(1.15)}
 .custom{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:28px}
 .custom b{font:800 18px var(--display)}
 .custom a{color:var(--accent);font-weight:700}
@@ -108,6 +110,7 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
   <section class="hero">
     <h1 id="h1">Sheds delivered to your door.</h1>
     <p id="lede">Enter your ZIP to see every building on the lots near you. Rent to own, no credit check. Free delivery within 50 miles of the lot.</p>
+    <a class="d3" id="d3top" href="https://shedview.stormor.com/?dealer=1415" target="_blank" rel="noopener">Design your own in 3D →</a>
   </section>
   <section class="filters" aria-label="Find a building">
     <div class="f"><label for="zip">Delivery ZIP</label><input id="zip" inputmode="numeric" maxlength="5" value="32055" autocomplete="postal-code"></div>
@@ -118,7 +121,7 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
     <div class="count" id="count" aria-live="polite"></div>
   </section>
   <section class="grid" id="grid" aria-label="Buildings"></section>
-  <section class="custom"><div><b>Don’t see it? Design your own.</b><div style="color:var(--muted);font-size:14px">Pick a style, size, colors and doors in 3D, then rent to own.</div></div><a href="https://shedview.stormor.com/?dealer=1415" target="_blank" rel="noopener">Open the 3D designer →</a></section>
+  <section class="custom"><div><b>Don’t see it? Design your own.</b><div style="color:var(--muted);font-size:14px">Pick a style, size, colors and doors in 3D, then rent to own.</div></div><a class="d3link" href="https://shedview.stormor.com/?dealer=1415" target="_blank" rel="noopener">Open the 3D designer →</a></section>
   <p class="fine">Monthly price is Stor-Mor’s lowest rent-to-own payment for that building, before tax; no credit check. Delivery is free within 50 miles of the lot, then about $6 per mile. Final price, delivery and availability are confirmed by the store before your order.</p>
 </main>
 
@@ -170,6 +173,9 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
   try{ VID=localStorage.getItem('c5vid')||''; if(!VID){ VID=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10); localStorage.setItem('c5vid',VID); }
     var q=location.search.slice(1).split('&').filter(function(x){return /^(fbclid|gclid|utm_[a-z]+|show)=/.test(x);}).join('&');
     if(q) localStorage.setItem('c5tags',q); TAGS=localStorage.getItem('c5tags')||''; }catch(e){}
+  document.querySelectorAll('a.d3, a.d3link').forEach(function(a){ a.addEventListener('click',function(){
+    try{ navigator.sendBeacon('https://build.cat5steelbuildings.com/api/shedclick',new Blob([JSON.stringify({id:-1,title:'Design your own (3D builder)',lot:'Lake City, FL',lotId:1415,zip:$('zip').value.trim(),vid:VID,tags:TAGS,page:location.pathname+location.search,ref:document.referrer})],{type:'text/plain'})); }catch(err){}
+    try{ if(window.gtag) gtag('event','shed_design_own'); }catch(err){} }); });
   $('grid').addEventListener('click',function(e){ var a=e.target.closest('a[data-i]'); if(!a) return; var r=st.rows[+a.dataset.i]; if(!r) return;
     var price=r.it.sp&&r.it.sp<r.it.p?r.it.sp:r.it.p;
     var ev={id:r.it.id,title:r.it.t,lot:r.L.c,lotId:r.it.d,price:price,mo:r.it.m,used:r.it.u,zip:$('zip').value.trim(),miles:Math.round(r.mi),vid:VID,tags:TAGS,page:location.pathname+location.search,ref:document.referrer};
