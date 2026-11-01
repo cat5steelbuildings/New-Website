@@ -194,7 +194,7 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
     var SC={}; j.items.forEach(function(i){ i.st=styleOf(i); SC[i.st]=(SC[i.st]||0)+1; });
     $('style').innerHTML='<option value="">All styles</option>'+Object.keys(SC).sort().map(function(k){return '<option>'+esc(k)+'</option>';}).join('');
     var lo=Math.min.apply(null,j.items.filter(function(i){return i.m>0;}).map(function(i){return i.m;}));
-    $('h1').innerHTML='Sheds delivered &amp; set up. <span class="big">From $'+lo+'/mo.</span>';
+    $('h1').innerHTML='Sheds delivered &amp; set up <span class="big">from $'+lo+'/mo.</span>';
     var mins=Math.max(1,Math.round((Date.now()-j.at)/60000));
     $('fresh').textContent='Live inventory: '+j.items.length.toLocaleString()+' buildings on '+Object.keys(j.lots).length+' lots across North Florida and South Georgia, updated '+(mins<60?mins+' min':Math.round(mins/60)+' hr')+' ago.';
     render();
