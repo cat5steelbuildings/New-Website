@@ -8,3 +8,9 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Sheds by Cat 5: live Stor-Mor inventory feed for /sheds (Nov 1 2026)
+[[redirects]]
+  from = "/api/sheds"
+  to = "/.netlify/functions/sheds"
+  status = 200
