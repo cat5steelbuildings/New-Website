@@ -155,7 +155,7 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
         '<div class="body"><h3 class="t">'+esc(it.t)+'</h3><div class="dims">'+(it.w?it.w+'′ × '+it.l+'′':'')+'</div>'+
         (it.m?'<div class="mo">'+money(it.m)+'<span>/mo · rent to own</span></div><div class="cash">or '+money(price)+' cash</div>':'<div class="mo">'+money(price)+'</div>')+
         '<div class="where"><span>📍 '+esc(r.L.c)+' · '+Math.round(r.mi)+' mi</span>'+(r.fee?'<span>Delivery ~'+money(r.fee)+'</span>':'<span class="free">Free delivery</span>')+'</div>'+
-        '<a class="want" href="https://stormor.shedsuite.com/'+it.d+'/shop-inventory/'+it.id+'" target="_blank" rel="noopener" data-i="'+i+'">Check availability →</a></div></article>'; }).join('')+
+        '<a class="want" href="https://stormor.shedsuite.com/'+it.d+'/shop-inventory/'+it.id+'" target="_blank" rel="noopener" data-i="'+i+'">View details &amp; photos</a></div></article>'; }).join('')+
       (rows.length>(st.show||48)?'<div class="empty" style="text-align:center"><button class="ghost" type="button" id="more">Show more ('+(rows.length-(st.show||48))+' left)</button></div>':'');
     var mb=$('more'); if(mb) mb.onclick=function(){ st.show=(st.show||48)+48; render(); };
   }
