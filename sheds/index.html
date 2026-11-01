@@ -108,8 +108,8 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
 
 <main class="wrap">
   <section class="hero">
-    <h1 id="h1">Sheds delivered to your door.</h1>
-    <p id="lede">Enter your ZIP to see every building on the lots near you. Rent to own, no credit check. Free delivery within 50 miles of the lot.</p>
+    <h1 id="h1">Sheds delivered &amp; set up.</h1>
+    <p id="lede">Enter your ZIP to see every building on the lots near you. Rent to own, no credit check. Free delivery and setup within 50 miles of the lot.</p>
     <a class="d3" id="d3top" href="https://shedview.stormor.com/?dealer=1415" target="_blank" rel="noopener">Design your own in 3D →</a>
   </section>
   <section class="filters" aria-label="Find a building">
@@ -122,7 +122,7 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
   </section>
   <section class="grid" id="grid" aria-label="Buildings"></section>
   <section class="custom"><div><b>Don’t see it? Design your own.</b><div style="color:var(--muted);font-size:14px">Pick a style, size, colors and doors in 3D, then rent to own.</div></div><a class="d3link" href="https://shedview.stormor.com/?dealer=1415" target="_blank" rel="noopener">Open the 3D designer →</a></section>
-  <p class="fine">Monthly price is Stor-Mor’s lowest rent-to-own payment for that building, before tax; no credit check. Delivery is free within 50 miles of the lot, then about $6 per mile. Final price, delivery and availability are confirmed by the store before your order.</p>
+  <p class="fine">Monthly price is Stor-Mor’s lowest rent-to-own payment for that building, before tax; no credit check. Delivery and setup are free within 50 miles of the lot, then about $6 per mile. Final price, delivery and availability are confirmed by the store before your order.</p>
 </main>
 
 
@@ -194,7 +194,7 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
     var SC={}; j.items.forEach(function(i){ i.st=styleOf(i); SC[i.st]=(SC[i.st]||0)+1; });
     $('style').innerHTML='<option value="">All styles</option>'+Object.keys(SC).sort().map(function(k){return '<option>'+esc(k)+'</option>';}).join('');
     var lo=Math.min.apply(null,j.items.filter(function(i){return i.m>0;}).map(function(i){return i.m;}));
-    $('h1').innerHTML='Sheds delivered to your door. <span class="big">From $'+lo+'/mo.</span>';
+    $('h1').innerHTML='Sheds delivered &amp; set up. <span class="big">From $'+lo+'/mo.</span>';
     var mins=Math.max(1,Math.round((Date.now()-j.at)/60000));
     $('fresh').textContent='Live inventory: '+j.items.length.toLocaleString()+' buildings on '+Object.keys(j.lots).length+' lots across North Florida and South Georgia, updated '+(mins<60?mins+' min':Math.round(mins/60)+' hr')+' ago.';
     render();
