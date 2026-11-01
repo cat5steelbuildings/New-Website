@@ -3181,6 +3181,7 @@ footer {
         throw new Error('Server returned ' + r.status);
       }
       // Success
+      try { if (window.gtag) gtag('event', 'generate_lead', {method: 'website_form', form_source: source || 'website'}); } catch (e) {}   // GA key event (Nov 1 2026)
       statusEl.classList.add('show', 'success');
       statusEl.textContent = opts.successMessage || '✓ Got it! We\'ll reach out fast. Check your phone/email shortly.';
       submitBtn.textContent = '✓ Sent';
