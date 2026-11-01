@@ -116,7 +116,7 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
     <div class="f"><label for="zip">Delivery ZIP</label><input id="zip" inputmode="numeric" maxlength="5" value="32055" autocomplete="postal-code"></div>
     <div class="f"><span class="flabel" id="showLbl">Show</span><div class="seg" role="group" aria-labelledby="showLbl"><button type="button" data-c="all" aria-pressed="true">All</button><button type="button" data-c="new" aria-pressed="false">New</button><button type="button" data-c="used" aria-pressed="false">Repos</button></div></div>
     <div class="f"><label for="style">Style</label><select id="style"><option value="">All styles</option></select></div>
-    <div class="f"><label for="maxmo">Up to</label><select id="maxmo"><option value="9999">Any monthly</option><option value="75">$75/mo</option><option value="100">$100/mo</option><option value="150">$150/mo</option><option value="250">$250/mo</option></select></div>
+    <div class="f"><label for="maxmo">Monthly</label><select id="maxmo"><option value="0-99999">Any monthly</option><option value="0-100">Under $100/mo</option><option value="100-200">$100–200/mo</option><option value="200-300">$200–300/mo</option><option value="300-400">$300–400/mo</option><option value="400-99999">$400+/mo</option></select></div>
     <div class="f"><label for="sort">Sort</label><select id="sort"><option value="near">Closest lot</option><option value="lo">Lowest monthly</option><option value="big">Biggest</option></select></div>
     <div class="count" id="count" aria-live="polite"></div>
   </section>
@@ -149,9 +149,9 @@ input,select{font:500 16px var(--body);color:var(--ink);background:var(--card);b
     var z=ZIPS[$('zip').value.trim()], g=$('grid');
     if(!D.items.length){ return; }
     if(!z){ g.innerHTML='<div class="empty">Enter a Florida or Georgia ZIP to see buildings near you.</div>'; $('count').textContent=''; return; }
-    var maxmo=+$('maxmo').value, rows=[];
+    var mr=$('maxmo').value.split('-'), mlo=+mr[0], mhi=+mr[1], rows=[];
     D.items.forEach(function(it){ var L=LOTS[it.d]; if(!L) return; var mi=miles(z[0],z[1],L.lat,L.lon);
-      if(mi>MAXMI) return; if(st.c==='new'&&it.u) return; if(st.c==='used'&&!it.u) return; if(it.m>maxmo) return; var sty=$('style').value; if(sty&&it.st!==sty) return;
+      if(mi>MAXMI) return; if(st.c==='new'&&it.u) return; if(st.c==='used'&&!it.u) return; if(it.m<mlo||it.m>=mhi) return; var sty=$('style').value; if(sty&&it.st!==sty) return;
       rows.push({it:it,L:L,mi:mi,fee:mi<=FREE?0:Math.round((mi-FREE)*RATE)}); });
     var s=$('sort').value; rows.sort(s==='lo'?function(a,b){return a.it.m-b.it.m;}:s==='big'?function(a,b){return b.it.w*b.it.l-a.it.w*a.it.l;}:function(a,b){return a.mi-b.mi||a.it.m-b.it.m;});
     var lotsN={}; rows.forEach(function(r){lotsN[r.it.d]=1;});
