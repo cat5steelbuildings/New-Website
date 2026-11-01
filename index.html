@@ -3262,12 +3262,13 @@ footer {
 <script>
 (function(){
   var PROMO_THEMES = [
-    {id:'vet', start:'2026-11-01', end:'2026-11-15', name:'Veterans Day Savings', big:'Up to 20% off', sub:'Thank you for your service', emoji:'🇺🇸', img:'promo-veterans.jpg', bg:'linear-gradient(135deg,#0a2a5c,#1f4f8f)'},
+    // Veterans Day banner taken down Nov 1 2026 (Tim: "take down the veterans day banner asap"); Nov 1–15 shows no seasonal banner
+    {id:'vet', off:true, start:'2026-11-01', end:'2026-11-15', name:'Veterans Day Savings', big:'Up to 20% off', sub:'Thank you for your service', emoji:'🇺🇸', img:'promo-veterans.jpg', bg:'linear-gradient(135deg,#0a2a5c,#1f4f8f)'},
     {id:'bf',  start:'2026-11-16', end:'2026-12-01', name:'Black Friday Savings', big:'Up to 20% off', sub:'Our biggest savings of the fall', emoji:'🦃', img:'promo-blackfriday.jpg', bg:'linear-gradient(135deg,#111,#3a2a00)'},
     {id:'hol', start:'2026-12-02', end:'2026-12-31', name:'Holiday Savings', big:'Up to 20% off', sub:'Give yourself the space you need', emoji:'🎄', img:'promo-holiday.jpg', bg:'linear-gradient(135deg,#0f4d2a,#8b1a1a)'}];
   var pv = (location.search.match(/[?&]promo=(\w+)/)||[])[1];
   var d = new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
-  var T = pv ? PROMO_THEMES.filter(function(t){return t.id===pv;})[0] : PROMO_THEMES.filter(function(t){return d>=t.start && d<=t.end;})[0];
+  var T = pv ? PROMO_THEMES.filter(function(t){return t.id===pv;})[0] : PROMO_THEMES.filter(function(t){return !t.off && d>=t.start && d<=t.end;})[0];
   if (!T) return;
   var $=function(i){return document.getElementById(i);}, KEY='c5_promo_'+T.id, st={};
   try{ st=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
