@@ -36,7 +36,8 @@ header{position:sticky;top:0;z-index:20;background:rgba(10,22,40,.94);backdrop-f
 .btn-o{background:linear-gradient(135deg,var(--orange-bright),var(--orange));color:#fff;box-shadow:0 6px 18px rgba(229,90,20,.35)}
 .btn-g{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2)}
 .hin .btn{padding:9px 14px;font-size:14px}
-@media(max-width:560px){.brand span{display:none}.hin .btn-g{display:none}}
+@media(max-width:760px){.hin .tel{display:none}}
+@media(max-width:560px){.brand span{display:none}}
 .intro{max-width:1240px;margin:0 auto;padding:28px 16px 14px;text-align:center}
 .intro h1{font-family:Archivo,sans-serif;font-weight:900;font-size:clamp(26px,5vw,44px);line-height:1.1;letter-spacing:-.5px}
 .intro h1 em{font-style:normal;color:var(--orange-glow)}
@@ -91,7 +92,8 @@ footer a{color:var(--steel-200)}
   <div class="hin">
     <a href="/" class="brand"><img src="cat5-logo-128.png" alt="Cat 5 Steel Buildings"><span>Cat 5 Steel Buildings</span></a>
     <div class="sp"></div>
-    <a class="btn btn-g" href="tel:+18884078335">📞 (888) 407-8335</a>
+    <a class="btn btn-g home" href="/" data-cta="header_home">← Home</a>
+    <a class="btn btn-g tel" href="tel:+18884078335">📞 (888) 407-8335</a>
     <a class="btn btn-o" href="https://build.cat5steelbuildings.com" data-cta="header_builder">Design in 3D</a>
   </div>
 </header>
@@ -109,6 +111,7 @@ footer a{color:var(--steel-200)}
 </section>
 
 <div class="cta">
+  <a class="btn btn-g" href="/#plans" data-cta="top_plans">See our model buildings</a>
   <a class="btn btn-o" href="https://build.cat5steelbuildings.com" data-cta="top_builder">Design yours in 3D →</a>
   <a class="btn btn-g" href="/#quote" data-cta="top_quote">Get a turnkey quote</a>
 </div>
@@ -120,6 +123,7 @@ footer a{color:var(--steel-200)}
 </section>
 
 <div class="cta" style="padding-bottom:10px">
+  <a class="btn btn-g" href="/" data-cta="bottom_home">← Back to home</a>
   <a class="btn btn-o" href="https://build.cat5steelbuildings.com" data-cta="bottom_builder">Design yours in 3D →</a>
   <a class="btn btn-g" href="tel:+18884078335" data-cta="bottom_call">📞 Call (888) 407-8335</a>
 </div>
