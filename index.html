@@ -776,6 +776,22 @@ nav.main a:hover { color: var(--orange-glow); }
   .specialty-single .plan-body { padding: 28px 24px; }
 }
 
+/* BARNDOS — 2-wide cards (Nov 14 2026) */
+.bd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 50px; }
+.bd-card { display: flex; flex-direction: column; border-right: 2px solid var(--navy); }
+.bd-photo { position: relative; aspect-ratio: 16 / 10; background: var(--navy-deep); overflow: hidden; }
+.bd-photo > img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+.bd-card:hover .bd-photo > img { transform: scale(1.03); }
+.bd-3d { position: absolute; right: 12px; bottom: 12px; width: 30%; max-width: 170px; padding: 0; border: 3px solid #fff; border-radius: 6px; overflow: hidden; background: #fff; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.35); line-height: 0; }
+.bd-3d img { width: 100%; display: block; }
+.bd-3d span { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(10,22,40,.82); color: #fff; font: 800 10.5px/1.9 'Archivo', sans-serif; letter-spacing: .08em; text-transform: uppercase; text-align: center; }
+.bd-new { position: absolute; top: 12px; left: 12px; background: var(--orange); color: #fff; padding: 5px 12px; font: 800 11px 'Archivo', sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+.bd-card .plan-body { flex: 1; display: flex; flex-direction: column; }
+.bd-card .plan-price { margin-top: auto; }
+.bd-size { font-size: 15px; font-weight: 800; color: var(--orange); margin: -2px 0 6px; }
+.bd-fine { font-size: 12px; color: var(--steel-600); text-align: center; max-width: 900px; margin: 18px auto 0; line-height: 1.5; }
+@media (max-width: 800px) { .bd-grid { grid-template-columns: 1fr; gap: 22px; } }
+
 /* CONCRETE ADDON BLOCK — sits under each row */
 .concrete-addon {
   background: linear-gradient(180deg, var(--steel-50) 0%, #ecf0f5 100%);
@@ -1868,6 +1884,7 @@ footer {
     </a>
     <nav class="main">
       <a href="#plans">Plans</a>
+      <a href="#barndo">Barndos</a>
       <a href="#builder">Build Your Own</a>
       <a href="#financing">Financing</a>
       <a href="#why">Why Cat 5</a>
@@ -1892,6 +1909,7 @@ footer {
       <p class="hero-sub">Family-owned. Florida, Georgia &amp; Alabama. <strong>Get a fast quote online — or a personal phone consult. Your call.</strong> We build in 140, 170, and 180 MPH wind certification. One call coordinates it all: plans, permits, concrete and install. <strong>Lock your price today with a small deposit.</strong> No pressure. <em style="color: var(--orange-glow); font-style: normal; font-weight: 700;">Your 100% satisfaction. Our mission.</em></p>
       <div class="hero-ctas">
         <a href="#plans" class="btn btn-primary btn-large">Choose a Plan</a>
+        <a href="#barndo" class="btn btn-outline-white btn-large">🏡 Barndos</a>
         <a href="#builder" class="btn btn-outline-white btn-large">Build Your Own →</a>
       </div>
       <a href="cat5-buyers-warning.pdf" class="hero-ebook-mobile" data-form-trigger="guide">📘 FREE BUYER'S GUIDE — Before You Sign With An Unvetted Steel Building Company</a>
@@ -2301,38 +2319,28 @@ footer {
     </div>
 
     <!-- ============================================ -->
-    <!-- CUSTOM DESIGN: 30x50x13 BARNDO (Tim, Nov 9 2026) -->
+    <!-- BARNDOS: 4 Cat 5 custom designs, 2 wide (Tim, Nov 14 2026) -->
     <!-- ============================================ -->
     <div class="section-head" id="barndo" style="margin-top: 80px; scroll-margin-top: 90px;">
-      <div class="eyebrow" style="justify-content: center;">Cat 5 Custom Designs</div>
+      <div class="eyebrow" style="justify-content: center;">Cat 5 Barndos</div>
       <h2>Live in it, work in it, <span class="accent">love the porch.</span></h2>
-      <p>Barndo-style living with a garage and a massive covered front porch.</p>
+      <p>Steel barndo shells with porches, garages and room to grow. Pick one, then make it yours in the 3D builder.</p>
     </div>
 
-    <div class="plan-groups" style="margin-top: 50px;">
-    <div class="plan-group">
-      <div class="plan-hero">
-        <img src="barndo-30x50-hero.jpg" alt="30x50x13 steel barndo with a covered front porch" loading="lazy">
-      </div>
-      <div class="plan-group-head">
-        <div>
-          <h3>30' × 50' × 13' + 2 lean-tos <span class="accent">— The Barndo</span></h3>
-          <div class="group-sub">Garage + massive front porch. Vertical roof, 1' overhangs, 4 windows, garage-door frame-outs. Built to your specs, in your colors.</div>
-        </div>
-        <div class="popular-tag">★ New</div>
-      </div>
-
-      <div class="specialty-single">
-        <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
-          <img src="barndo-30x50.jpg" alt="The Barndo 3D render" loading="lazy">
-          <div class="cert-badge">Cat 5 Certified</div>
+    <div class="bd-grid">
+      <div class="bd-card plan-variant plan-group">
+        <div class="bd-photo">
+          <img src="barndo-30x50-hero.jpg" alt="30x50x13 steel barndo with a garage and covered front porch" loading="lazy">
+          <button type="button" class="bd-3d" aria-label="Show the 3D design of The Homestead"><img src="barndo-30x50.jpg" alt="The Homestead 3D design" loading="lazy"><span>3D view</span></button>
+          
         </div>
         <div class="plan-body">
-          <div class="plan-eyebrow">Garage + Porch</div>
-          <h4 class="plan-name">The Barndo</h4>
-          <div class="plan-doors">30'×50'×13' · two 9' lean-tos (covered porch) · 4 windows · 170 MPH · 12-gauge frame</div>
+          <div class="plan-eyebrow">Garage + Big Porch</div>
+          <h4 class="plan-name">The Homestead</h4>
+          <h3 class="bd-size">30' × 50' × 13'</h3>
+          <div class="plan-doors">Two 9′ lean-tos make a full-length covered porch · garage-door frame-outs · 4 windows · vertical roof · 170 MPH · 12-gauge frame</div>
           <div class="plan-price">
-            <div class="was"><span class="off">Veterans Day pricing · building only, plus tax</span></div>
+            <div class="was"><span class="off">Starting at · steel building only, plus tax</span></div>
             <div class="amount">$25,911<span class="star">*</span></div>
             <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
           </div>
@@ -2343,8 +2351,78 @@ footer {
           </div>
         </div>
       </div>
+      <div class="bd-card plan-variant plan-group">
+        <div class="bd-photo">
+          <img src="barndo-farmhouse.jpg" alt="Two-story steel farmhouse barndo with an attached garage and front porch" loading="lazy">
+          <button type="button" class="bd-3d" aria-label="Show the 3D design of The Farmhouse"><img src="barndo-farmhouse-3d.jpg" alt="The Farmhouse 3D design" loading="lazy"><span>3D view</span></button>
+          <div class="bd-new">★ New</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-eyebrow">2-Story Look + Attached Garage</div>
+          <h4 class="plan-name">The Farmhouse</h4>
+          <h3 class="bd-size">24' × 30' × 16'</h3>
+          <div class="plan-doors">20′×20′ attached garage with a 12×8 roll-up · 8′×24′ enclosed front lean · 8 window frame-outs · 6:12 roof · 170 MPH · 12-gauge frame</div>
+          <div class="plan-price">
+            <div class="was"><span class="off">Starting at · steel building only, plus tax</span></div>
+            <div class="amount">$25,175<span class="star">*</span></div>
+            <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
+          </div>
+          <div class="plan-ctas">
+            <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">🔒 Lock My Price</a>
+            <a href="https://build.cat5steelbuildings.com/?from=ajERd9hHnkiEkc" class="plan-cta plan-cta-secondary" target="_blank" rel="noopener">Edit This Plan</a>
+            <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="bd-card plan-variant plan-group">
+        <div class="bd-photo">
+          <img src="barndo-veranda.jpg" alt="White two-story steel barndo with a wraparound porch" loading="lazy">
+          <button type="button" class="bd-3d" aria-label="Show the 3D design of The Veranda"><img src="barndo-veranda-3d.jpg" alt="The Veranda 3D design" loading="lazy"><span>3D view</span></button>
+          <div class="bd-new">★ New</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-eyebrow">Wraparound Porch</div>
+          <h4 class="plan-name">The Veranda</h4>
+          <h3 class="bd-size">30' × 30' × 16'</h3>
+          <div class="plan-doors">8′ porch wraps the front, side and back · gabled entry bump-out · 5:12 roof · 2″ insulation, roof and walls · 170 MPH</div>
+          <div class="plan-price">
+            <div class="was"><span class="off">Starting at · steel building only, plus tax</span></div>
+            <div class="amount">$42,422<span class="star">*</span></div>
+            <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
+          </div>
+          <div class="plan-ctas">
+            <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">🔒 Lock My Price</a>
+            <a href="https://build.cat5steelbuildings.com/?from=3gf6ZVf68aCkWA" class="plan-cta plan-cta-secondary" target="_blank" rel="noopener">Edit This Plan</a>
+            <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="bd-card plan-variant plan-group">
+        <div class="bd-photo">
+          <img src="barndo-bigbend.jpg" alt="Steel barndo with a deep covered porch and a gabled entry" loading="lazy">
+          <button type="button" class="bd-3d" aria-label="Show the 3D design of The Big Bend"><img src="barndo-bigbend-3d.jpg" alt="The Big Bend 3D design" loading="lazy"><span>3D view</span></button>
+          <div class="bd-new">★ New</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-eyebrow">Deep Porch + Gabled Entry</div>
+          <h4 class="plan-name">The Big Bend</h4>
+          <h3 class="bd-size">30' × 40' × 15'</h3>
+          <div class="plan-doors">8′ + 12′ covered porches that wrap both front corners · 6:12 roof · 2″ insulation, roof and walls · engineered barndo plans · 170 MPH</div>
+          <div class="plan-price">
+            <div class="was"><span class="off">Starting at · steel building only, plus tax</span></div>
+            <div class="amount">$44,201<span class="star">*</span></div>
+            <div class="rto">We offer <strong>Rent-to-Own</strong> on this building!</div>
+          </div>
+          <div class="plan-ctas">
+            <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">🔒 Lock My Price</a>
+            <a href="https://build.cat5steelbuildings.com/?from=HTc5KCFDFhtjxu" class="plan-cta plan-cta-secondary" target="_blank" rel="noopener">Edit This Plan</a>
+            <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
+          </div>
+        </div>
+      </div>
     </div>
-    </div><!-- /.plan-groups (custom designs) -->
+    <p class="bd-fine">*Steel building shell with framed openings for your doors and windows. Porch columns, siding finishes, interior and landscaping in the photos are for illustration. Price varies by ZIP code, manufacturer and options; concrete and county permit fees are not included. Black doors and windows are not available in Florida.</p>
+
 
     <!-- SPECIALTY — Option B: 3 mini-rows, each its own hero + concrete addon -->
     <div class="section-head" style="margin-top: 80px;">
@@ -3390,5 +3468,14 @@ footer {
 })();
 </script>
 
+<script>/* barndo cards: tap the 3D thumbnail to swap it with the photo (Nov 14 2026) */
+document.querySelectorAll('.bd-3d').forEach(b => b.addEventListener('click', e => {
+  e.preventDefault(); e.stopPropagation();
+  const big = b.parentElement.querySelector(':scope > img'), small = b.querySelector('img'), lab = b.querySelector('span');
+  const t = big.src; big.src = small.src; small.src = t;
+  lab.textContent = lab.textContent === '3D view' ? 'Photo' : '3D view';
+  big.style.objectFit = /-3d\.jpg|barndo-30x50\.jpg$/.test(big.src) ? 'contain' : 'cover';
+}));
+</script>
 </body>
 </html>
