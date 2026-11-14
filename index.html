@@ -2363,7 +2363,7 @@ footer {
       <div class="bd-card plan-variant plan-group">
         <div class="bd-photo">
           <img src="barndo-30x50-hero.jpg" alt="30x40x13 steel barndo with a garage and covered porch" loading="lazy">
-          <button type="button" class="bd-3d" aria-label="Show the 3D design of The Homestead"><img src="barndo-30x50.jpg" alt="The Homestead 3D design" loading="lazy"><span>3D view</span></button>
+          <button type="button" class="bd-3d" aria-label="Show the 3D design of The Homestead"><img src="barndo-homestead-3d.jpg" alt="The Homestead 3D design" loading="lazy"><span>3D view</span></button>
           
         </div>
         <div class="plan-body">
@@ -2427,7 +2427,7 @@ footer {
           </div>
           <div class="plan-ctas">
             <a href="#" class="plan-cta plan-cta-primary" data-form-trigger="quote">🔒 Lock My Price</a>
-            <a href="https://build.cat5steelbuildings.com/?from=3gf6ZVf68aCkWA" class="plan-cta plan-cta-secondary" target="_blank" rel="noopener">Edit This Plan</a>
+            <a href="https://build.cat5steelbuildings.com/?from=px6j4W77SaT9XQ" class="plan-cta plan-cta-secondary" target="_blank" rel="noopener">Edit This Plan</a>
             <a href="#" class="plan-cta plan-cta-tertiary" data-form-trigger="ask">Ask Us</a>
           </div>
         </div>
@@ -3510,7 +3510,7 @@ document.querySelectorAll('.bd-3d').forEach(b => b.addEventListener('click', e =
   const big = b.parentElement.querySelector(':scope > img'), small = b.querySelector('img'), lab = b.querySelector('span');
   const t = big.src; big.src = small.src; small.src = t;
   lab.textContent = lab.textContent === '3D view' ? 'Photo' : '3D view';
-  big.style.objectFit = /-3d\.jpg|barndo-30x50\.jpg$/.test(big.src) ? 'contain' : 'cover';
+  big.style.objectFit = /-3d\.jpg$/.test(big.src) ? 'contain' : 'cover';
 }));
 </script>
 </body>
