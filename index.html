@@ -805,6 +805,13 @@ nav.main a:hover { color: var(--orange-glow); }
 .bd-list { margin: 4px 0 8px; padding-left: 18px; font-size: 13.5px; color: var(--steel-600); line-height: 1.5; }
 .bd-list li { margin: 1px 0; }
 .bd-region { font-size: 12px; font-style: italic; color: var(--steel-600); margin-bottom: 10px; }
+.tap3d { position: absolute; top: 10px; right: 10px; z-index: 2; background: rgba(10,22,40,.85); color: #fff; font: 800 11px/1 'Archivo', sans-serif; letter-spacing: .08em; text-transform: uppercase; padding: 7px 10px; border-radius: 14px; pointer-events: none; }
+.plan-photo.go, .bd-photo.go { cursor: pointer; }
+.plan-photo.go:focus, .bd-photo.go:focus { outline: 3px solid var(--orange); outline-offset: 2px; }
+[id^="plan-"] { scroll-margin-top: 110px; }
+.bd-toggle { display: inline-grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--navy); border-radius: 22px; overflow: hidden; margin-bottom: 12px; max-width: 320px; }
+.bd-toggle button { border: 0; background: #fff; color: var(--navy); font: 800 12.5px 'Archivo', sans-serif; letter-spacing: .04em; text-transform: uppercase; padding: 9px 14px; cursor: pointer; }
+.bd-toggle button.on { background: var(--navy); color: #fff; }
 .bd-fine { font-size: 12px; color: var(--steel-600); text-align: center; max-width: 900px; margin: 18px auto 0; line-height: 1.5; }
 @media (max-width: 800px) { .bd-grid { grid-template-columns: 1fr; gap: 22px; } }
 
@@ -2050,7 +2057,7 @@ footer {
         </div>
         <div class="plan-variants">
           <div class="plan-variant">
-            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+            <div class="plan-photo">
               <img src="plan-compact-1ru.jpg" alt="The Compact - 1 RU door">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2073,7 +2080,7 @@ footer {
           </div>
 
           <div class="plan-variant">
-            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+            <div class="plan-photo">
               <img src="plan-compact-2ru.jpg" alt="The Compact Duo - 2 RU doors">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2096,7 +2103,7 @@ footer {
           </div>
 
           <div class="plan-variant">
-            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+            <div class="plan-photo">
               <img src="plan-compact-3ru.jpg" alt="The Compact Trio - 3 RU doors">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2156,7 +2163,7 @@ footer {
         </div>
         <div class="plan-variants">
           <div class="plan-variant">
-            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+            <div class="plan-photo">
               <img src="plan-standard-1ru.jpg" alt="The Standard">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2179,7 +2186,7 @@ footer {
           </div>
 
           <div class="plan-variant flagship">
-            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+            <div class="plan-photo">
               <img src="plan-standard-2ru.jpg" alt="The Standard Duo">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2201,7 +2208,7 @@ footer {
           </div>
 
           <div class="plan-variant">
-            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+            <div class="plan-photo">
               <img src="plan-standard-3ru.jpg" alt="The Standard Trio">
               <div class="bonus-ribbon">Bonus Buy</div>
               <div class="cert-badge">Cat 5 Certified</div>
@@ -2261,7 +2268,7 @@ footer {
         </div>
         <div class="plan-variants">
           <div class="plan-variant">
-            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+            <div class="plan-photo">
               <img src="plan-plus-1ru.jpg" alt="The Plus">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2283,7 +2290,7 @@ footer {
           </div>
 
           <div class="plan-variant">
-            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+            <div class="plan-photo">
               <img src="plan-plus-2ru.jpg" alt="The Plus Duo">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2305,7 +2312,7 @@ footer {
           </div>
 
           <div class="plan-variant">
-            <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+            <div class="plan-photo">
               <img src="plan-plus-3ru.jpg" alt="The Plus Trio">
               <div class="cert-badge">Cat 5 Certified</div>
             </div>
@@ -2359,13 +2366,14 @@ footer {
     </div>
 
     <div class="bd-grid">
-      <div class="bd-card plan-variant plan-group">
+      <div class="bd-card plan-variant plan-group" id="plan-homestead">
         <div class="bd-photo">
           <img src="barndo-30x50-hero.jpg" alt="30x40x13 steel barndo with a garage and covered porch" loading="lazy">
           <button type="button" class="bd-3d" aria-label="Show the 3D design of The Homestead"><img src="barndo-homestead-3d.jpg" alt="The Homestead 3D design" loading="lazy"><span>3D view</span></button>
           
         </div>
         <div class="plan-body">
+          <div class="bd-toggle" role="group" aria-label="Homestead options"><button type="button" class="on" data-hv="0">Porch only</button><button type="button" data-hv="1">+ 2-Car Garage</button></div>
           <div class="plan-eyebrow">Garage + Big Porch</div>
           <h4 class="plan-name">The Homestead</h4>
           <h3 class="bd-size">30' × 40' × 13'</h3>
@@ -2486,7 +2494,7 @@ footer {
       </div>
 
       <div class="specialty-single">
-        <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+        <div class="plan-photo">
           <img src="plan-workshop.jpg" alt="The Workshop CAD render">
           <div class="cert-badge">Cat 5 Certified</div>
         </div>
@@ -2545,7 +2553,7 @@ footer {
       </div>
 
       <div class="specialty-single">
-        <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+        <div class="plan-photo">
           <img src="plan-proshop.jpg" alt="The Pro Shop CAD render">
           <div class="cert-badge">Cat 5 Certified</div>
         </div>
@@ -2603,7 +2611,7 @@ footer {
       </div>
 
       <div class="specialty-single">
-        <div class="plan-photo" data-form-trigger="quote" role="button" tabindex="0" aria-label="Lock my price for this plan">
+        <div class="plan-photo">
           <img src="plan-commander.jpg" alt="The Commander CAD render">
           <div class="cert-badge">Cat 5 Certified</div>
         </div>
@@ -3511,6 +3519,50 @@ document.querySelectorAll('.bd-3d').forEach(b => b.addEventListener('click', e =
   lab.textContent = lab.textContent === '3D view' ? 'Photo' : '3D view';
   big.style.objectFit = /-3d\.jpg$/.test(big.src) ? 'contain' : 'cover';
 }));
+</script>
+<script>/* plan photos open that design in the 3D builder, same tab; the builder shows "← Back to Cat 5 plans" to this card (Nov 14 2026) */
+(function(){
+  const B = 'https://build.cat5steelbuildings.com/';
+  document.querySelectorAll('a.plan-cta-secondary[href*="?from="]').forEach(a => {
+    const card = a.closest('.bd-card, .plan-variant, .specialty-single'); if (!card) return;
+    const from = new URL(a.href).searchParams.get('from');
+    if (!card.id) card.id = 'plan-' + from;
+    a.href = B + '?from=' + from + '&ret=' + card.id; a.removeAttribute('target'); a.removeAttribute('rel');
+    const ph = card.querySelector('.plan-photo, .bd-photo'); if (!ph) return;
+    ph.classList.add('go'); ph.setAttribute('role', 'link'); ph.tabIndex = 0; ph.setAttribute('aria-label', 'See this building in the 3D builder');
+    const t = document.createElement('span'); t.className = 'tap3d'; t.textContent = 'Tap to see it in 3D'; ph.appendChild(t);
+    const go = () => { location.href = a.href; };
+    ph.addEventListener('click', e => { if (e.target.closest('.bd-3d')) return; go(); });
+    ph.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+  });
+  // Homestead: Porch only / + 2-Car Garage (Tim, Nov 14 2026: 3 customers asked for a garage)
+  const hc = document.getElementById('plan-homestead'); if (!hc) return;
+  const V = [
+    {from: 'AeU8jZfqkjhS32', photo: 'barndo-30x50-hero.jpg', thumb: 'barndo-homestead-3d.jpg', eye: 'Garage + Big Porch', price: '$34,064', list: hc.querySelector('.bd-list').innerHTML},
+    {from: 'DepRmnynS3M47C', photo: 'barndo-homestead-garage-3d.jpg', thumb: '', eye: 'Big Porch + 2-Car Garage', price: '$44,861', list: [
+      '30′×40′×13′ main building, vertical roof (3:12)',
+      '20′×30′ enclosed 2-car garage on the back, 12′ legs, with a 16×8 roll-up door and a walk-in door',
+      '12′×40′ open lean-to (covered porch), 10′ legs',
+      '12′×19′ enclosed lean-to, 12′ legs',
+      '6 garage-door frame-outs · 2 walk-in door frame-outs (1 double)',
+      '6 window frame-outs + one 30″×36″ window',
+      '2″ fiberglass insulation, roof and all walls',
+      'Engineered site plans',
+      'Ash Gray walls · black roof, trim and wainscot',
+      '14-gauge frame · 29-gauge sheet metal · 170 MPH certified'].map(x => '<li>' + x + '</li>').join('')}];
+  const big = hc.querySelector('.bd-photo > img'), th = hc.querySelector('.bd-3d'), a = hc.querySelector('a.plan-cta-secondary');
+  hc.querySelectorAll('.bd-toggle button').forEach(b => b.addEventListener('click', () => {
+    const v = V[+b.dataset.hv];
+    hc.querySelectorAll('.bd-toggle button').forEach(x => x.classList.toggle('on', x === b));
+    big.src = v.photo; big.style.objectFit = /-3d\.jpg$/.test(v.photo) ? 'contain' : 'cover';
+    if (v.thumb){ th.hidden = false; th.querySelector('img').src = v.thumb; th.querySelector('span').textContent = '3D view'; } else th.hidden = true;
+    hc.querySelector('.plan-eyebrow').textContent = v.eye;
+    hc.querySelector('.bd-list').innerHTML = v.list;
+    hc.querySelector('.amount').firstChild.textContent = v.price;
+    a.href = B + '?from=' + v.from + '&ret=plan-homestead';
+    hc.querySelector('.bd-size').textContent = v.from === 'DepRmnynS3M47C' ? "30' × 40' × 13' + 20' × 30' garage" : "30' × 40' × 13'";
+  }));
+})();
 </script>
 </body>
 </html>
