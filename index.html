@@ -4,6 +4,7 @@
 <!-- Google Analytics (GA4) — Tim, Oct 31 2026 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B07D1ZVHDW"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-B07D1ZVHDW");</script>
+<script>/* GA click events (Nov 15 2026): calls, texts, Messenger, rent-to-own apply, 3D builder opens — same names as the builder site */document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a,.plan-photo.go,.bd-photo.go');if(!a||!window.gtag)return;var h=(a.getAttribute&&a.getAttribute('href'))||'';try{if(/^tel:/.test(h))gtag('event','contact_call');else if(/^sms:/.test(h))gtag('event','contact_text');else if(/m\.me\/|messenger\.com/.test(h))gtag('event','contact_chat');else if(/ezpaybuildings|rent.?to.?own|rtonational/i.test(h))gtag('event','rto_apply');else if(/build\.cat5steelbuildings\.com/.test(h)||a.classList.contains('go'))gtag('event','open_builder',{link_url:h.split('&ret')[0]});}catch(_){}},true);</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cat 5 Steel Buildings — Hurricane-Tested Garages | FL · GA · AL</title>
