@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheds by Cat 5 — Storage Sheds, Cabins & Workshops</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Portable storage sheds, cabins and workshops from Cat 5 Steel Buildings. Pick a style and size, see the price, and request yours.">
+<link rel="icon" type="image/png" href="/cat5-logo-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#112341;--navy-deep:#0A1628;--orange:#E55A14;--orange-b:#F26B1F;--cream:#FAF8F4;--line:#D6DCE5;--muted:#4A5668;--ink:#0E1A2E;--wood:#7a4a1d;--green:#2D9F4D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5}
+h1,h2,h3,.btn{font-family:'Archivo',sans-serif}
+a{color:inherit}
+header{background:var(--navy-deep);color:#fff;padding:12px 20px;display:flex;align-items:center;gap:12px;justify-content:space-between}
+header .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+header img{width:40px;height:40px}
+header b{font:800 19px 'Archivo',sans-serif;letter-spacing:.2px}
+header .call{font:600 15px 'Archivo',sans-serif;color:#fff;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 14px}
+.hero{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff;padding:44px 20px 52px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:900;line-height:1.1;max-width:820px;margin:0 auto 12px}
+.hero p{color:#c9d3e2;max-width:640px;margin:0 auto 20px;font-size:17px}
+.hero .pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hero .pills span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 12px;font-size:14px}
+main{max-width:1180px;margin:0 auto;padding:28px 18px 60px}
+.sect-h{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:8px 0 14px}
+.sect-h h2{font-size:26px;font-weight:800}
+.sect-h p{color:var(--muted);font-size:15px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{font:600 14px 'IBM Plex Sans',sans-serif;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;cursor:pointer}
+.filters button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.pic{background:linear-gradient(180deg,#e9eef5,#f6f3ec);height:150px;display:flex;align-items:center;justify-content:center;position:relative}
+.pic .tag{position:absolute;top:10px;left:10px;font:700 11px 'Archivo',sans-serif;letter-spacing:.6px;text-transform:uppercase;background:#fff;border-radius:999px;padding:3px 9px;border:1px solid var(--line)}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.body h3{font-size:19px;font-weight:800}
+.from{font-size:14px;color:var(--muted)} .from b{font:800 20px 'Archivo',sans-serif;color:var(--ink)}
+.std{font-size:14px;color:var(--muted);flex:1}
+.row{display:flex;gap:8px;align-items:center}
+select{font:500 15px 'IBM Plex Sans',sans-serif;border:1.5px solid var(--line);border-radius:10px;padding:9px 10px;background:#fff;flex:1;min-width:0}
+.price{font:800 22px 'Archivo',sans-serif;min-width:96px;text-align:right}
+.btn{display:block;width:100%;text-align:center;font-weight:800;font-size:16px;border:0;border-radius:10px;padding:12px;cursor:pointer;background:var(--orange);color:#fff;text-decoration:none}
+.btn:hover{background:var(--orange-b)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.note{font-size:13px;color:var(--muted);margin-top:18px;max-width:900px}
+#stock{display:none;margin-bottom:34px}
+.zipbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.zipbar input{font:500 15px 'IBM Plex Sans',sans-serif;border:1.5px solid var(--line);border-radius:10px;padding:9px 10px;width:120px}
+.mi{font:600 12px 'IBM Plex Sans',sans-serif;color:var(--green)}
+dialog{border:0;border-radius:16px;padding:0;max-width:440px;width:calc(100% - 24px)}
+dialog::backdrop{background:rgba(10,22,40,.6)}
+.dlg{padding:20px}
+.dlg h3{font-size:21px;margin-bottom:4px}
+.dlg .sub{color:var(--muted);font-size:14px;margin-bottom:12px}
+.dlg label{display:block;font-size:13px;font-weight:600;margin:8px 0 3px}
+.dlg input,.dlg textarea{width:100%;font:500 15px 'IBM Plex Sans',sans-serif;border:1.5px solid var(--line);border-radius:10px;padding:9px 10px}
+.dlg .chk{display:flex;gap:8px;align-items:flex-start;font-weight:400;font-size:13px;color:var(--muted);margin:12px 0}
+.dlg .chk input{width:auto;margin-top:3px}
+.dlg .err{color:#C8331E;font-size:14px;min-height:20px}
+.dlg .x{float:right;background:none;border:0;font-size:24px;cursor:pointer;line-height:1}
+.hp{position:absolute;left:-9999px}
+footer{background:var(--navy-deep);color:#9fb0c7;text-align:center;padding:22px;font-size:14px}
+footer a{color:#fff}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/"><img src="/cat5-logo-128.png" alt="Cat 5"><b>Sheds by Cat 5</b></a>
+  <a class="call" href="tel:+18884078335">(888) 407-8335</a>
+</header>
+
+<section class="hero">
+  <h1>Storage sheds, cabins &amp; workshops, built for you</h1>
+  <p>Pick a style and size, see the price, and request it. A Cat 5 rep calls you to finish the details. No pressure, no runaround.</p>
+  <div class="pills"><span>Wood or metal</span><span>Sizes 6′ to 16′ wide</span><span>Built new to order</span><span>Veteran-owned</span></div>
+</section>
+
+<main>
+  <section id="stock">
+    <div class="sect-h"><div><h2>Ready now near you</h2><p>Already built and sitting on a lot. Fastest way to get a shed.</p></div>
+      <div class="zipbar"><input id="zip" inputmode="numeric" maxlength="5" placeholder="Your ZIP"><span id="zipMsg" class="from"></span></div></div>
+    <div class="grid" id="stockGrid"></div>
+  </section>
+
+  <section>
+    <div class="sect-h"><div><h2>Build a new one</h2><p>Made to order for you. New builds typically take 6–8 weeks.</p></div>
+      <div class="filters" id="filters"><button class="on" data-f="all">All</button><button data-f="wood">Wood</button><button data-f="metal">Metal</button><button data-f="cabin">Cabins</button><button data-f="barn">Barns</button></div></div>
+    <div class="grid" id="grid"></div>
+    <p class="note">Prices shown are base prices for a new build, before sales tax. Doors, windows, shelving, electrical, insulation and other add-ons are extra and priced on your quote. Delivery, site requirements and final price are confirmed by your Cat 5 rep before you put anything down. Wider buildings and some sites need a site check first.</p>
+  </section>
+</main>
+
+<dialog id="dlg"><form class="dlg" id="form" novalidate>
+  <button type="button" class="x" id="close" aria-label="Close">×</button>
+  <h3 id="dTitle">Request this shed</h3>
+  <div class="sub" id="dSub"></div>
+  <label for="fName">Name</label><input id="fName" autocomplete="name" required>
+  <label for="fPhone">Phone</label><input id="fPhone" type="tel" autocomplete="tel" required>
+  <label for="fEmail">Email (optional)</label><input id="fEmail" type="email" autocomplete="email">
+  <label for="fZip">Delivery ZIP</label><input id="fZip" inputmode="numeric" maxlength="5" autocomplete="postal-code">
+  <label for="fNotes">Anything else? (color, doors, windows, timing)</label><textarea id="fNotes" rows="3"></textarea>
+  <input class="hp" id="fWeb" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <label class="chk"><input type="checkbox" id="fAgree"> <span>OK to contact me by phone, text or email about this shed. The price shown is a base price; my final price is confirmed with my rep.</span></label>
+  <div class="err" id="fErr" role="alert"></div>
+  <button class="btn" type="submit" id="fSend">Send my request</button>
+</form></dialog>
+
+<footer>Sheds by <a href="/">Cat 5 Steel Buildings</a> · Perry, FL · <a href="tel:+18884078335">(888) 407-8335</a></footer>
+
+<script>
+var CATALOG = [{"name":"Utility","code":"UT","sizes":[[6,6,2550],[6,8,2627],[6,10,3235],[6,12,3523],[6,16,4414],[6,18,4965],[8,6,2627],[8,8,2694],[8,10,3291],[8,12,3580],[8,14,4172],[8,16,4502],[8,18,5290],[8,20,5696],[8,22,6211],[8,24,6829],[8,30,8318],[10,6,3235],[10,10,4260],[10,12,4378],[10,14,4970],[10,16,5300],[10,18,5969],[10,20,6227],[10,24,7432],[10,30,9404],[10,32,9925],[10,34,10543],[10,36,11124],[10,40,12021],[12,10,4466],[12,12,5290],[12,14,6088],[12,16,6350],[12,18,7061],[12,20,7458],[12,24,8838],[12,28,9935],[12,30,10991],[12,32,11225],[12,34,11392],[12,36,12577],[12,40,13612],[12,42,14158],[12,44,14704],[12,48,15790],[12,50,16537],[14,10,5192],[14,12,6057],[14,14,6865],[14,16,7221],[14,18,7968],[14,20,8354],[14,24,10007],[14,26,10831],[14,28,11330],[14,30,12319],[14,32,12968],[14,34,13849],[14,36,14384],[14,40,15641],[14,44,16908],[14,48,18185],[14,50,19035],[14,52,19514],[14,60,22516],[16,14,7684],[16,16,8153],[16,18,8956],[16,20,9719],[16,22,10862],[16,24,11536],[16,26,12340],[16,28,12870],[16,30,13947],[16,32,14575],[16,34,15420],[16,36,15976],[16,38,16985],[16,40,17716],[16,42,18633],[16,44,19524],[16,48,20812],[16,50,21873],[16,52,22465],[16,54,23464],[16,56,24061],[16,60,26085]],"material":"wood","from":2550,"std":"Wood. 8\u2032 wide: 6\u20326\u2033 walls and a 4\u2032 door. 10\u2032+ wide: 8\u2032 walls and double front doors.","shape":"gable","label":"Utility"},{"name":"Side Utility","code":"SUT","sizes":[[6,6,2756],[6,8,2833],[6,10,3441],[6,12,3724],[6,14,4007],[8,8,2895],[8,10,3497],[8,12,3786],[8,14,4373],[8,16,4708],[8,20,5902],[8,24,7035],[8,30,8524],[10,10,4460],[10,12,4584],[10,14,5176],[10,16,5501],[10,18,6175],[10,20,6428],[10,24,7633],[10,28,8822],[10,30,9610],[10,32,10128],[12,12,5490],[12,14,6294],[12,16,6556],[12,18,7262],[12,20,7664],[12,22,8354],[12,24,9044],[12,28,10136],[12,30,11197],[12,32,11598],[12,34,12463],[12,36,12783],[12,38,13396],[12,40,13818],[12,44,14910],[12,48,15991],[12,50,16738],[12,52,17248],[12,54,18031],[14,10,5398],[14,14,7066],[14,16,7427],[14,18,8174],[14,20,8555],[14,22,9559],[14,24,10213],[14,26,10893],[14,28,11531],[14,30,12525],[14,32,13169],[14,34,14045],[14,36,14590],[14,38,15353],[14,40,15847],[14,44,17109],[14,48,18391],[14,50,19236],[14,52,19715],[14,54,20554],[14,56,21311],[14,58,22072],[16,10,5562],[16,12,6675],[16,14,7787],[16,16,8369],[16,18,9106],[16,20,9925],[16,22,11063],[16,24,11742],[16,26,12644],[16,28,13071],[16,30,14142],[16,32,14781],[16,34,15620],[16,36,16177],[16,40,17922],[16,42,18819],[16,44,19725],[16,46,20379],[16,48,21012],[16,50,22079],[16,52,22671],[16,54,23670],[16,56,24262],[16,58,25504],[16,60,26291]],"material":"wood","from":2756,"std":"Wood, door on the long side. 2\u00d73 window each side of the door. 14\u2032+ long: double doors.","shape":"gable","label":"Side Utility"},{"name":"Lofted Barn","code":"LB","sizes":[[8,8,3494],[8,10,3961],[8,12,4296],[8,14,4924],[8,16,5259],[8,18,6227],[8,20,6670],[8,24,7978],[10,10,4728],[10,12,5078],[10,14,5712],[10,16,6103],[10,18,6829],[10,20,7247],[10,22,7993],[10,24,8416],[10,30,9219],[10,36,12088],[12,12,5974],[12,14,6829],[12,16,7283],[12,18,8194],[12,20,8658],[12,24,10228],[12,26,10779],[12,28,11027],[12,30,12088],[12,32,12783],[12,34,13633],[12,36,13942],[12,40,15121],[12,44,15899],[14,14,7890],[14,16,8199],[14,20,9554],[14,24,11274],[14,28,12886],[14,30,14008],[14,32,14812],[14,34,15811],[14,36,16460],[14,40,18031],[14,44,19643],[14,48,21275],[16,16,9791],[16,20,11289],[16,24,12855],[16,26,13823],[16,28,14796],[16,30,15868],[16,32,16759],[16,34,17861],[16,36,18726],[16,40,20683],[16,44,22630],[16,46,23402],[16,48,24175],[16,50,25194],[16,52,25740],[16,54,26775],[16,56,27342],[16,60,28985]],"material":"wood","from":3494,"std":"Wood barn roof with lofts front and back. 8\u2032 wide: 4\u2032 door; 10\u2032+: double doors.","shape":"barn","label":"Lofted Barn"},{"name":"Side Lofted Barn","code":"SLB","sizes":[[8,10,4162],[8,12,4502],[8,14,5125],[8,16,5465],[8,18,6428],[8,20,6876],[8,22,7499],[8,24,8179],[10,12,5284],[10,14,5918],[10,16,6309],[10,18,7035],[10,20,7447],[10,22,8199],[10,24,8622],[10,30,9425],[12,12,6180],[12,14,7035],[12,16,7489],[12,18,8400],[12,20,8858],[12,22,9806],[12,24,10424],[12,28,11233],[12,30,12288],[12,32,12989],[12,34,13839],[12,36,14142],[12,40,15327],[12,50,19200],[14,14,8091],[14,16,8405],[14,20,9760],[14,22,10800],[14,24,11480],[14,28,13092],[14,30,14214],[14,32,15018],[14,34,16017],[14,36,16666],[14,40,18231],[14,44,19849],[14,48,21476],[14,50,22400],[16,16,9986],[16,20,11495],[16,24,13061],[16,26,14029],[16,28,15002],[16,30,16074],[16,32,16965],[16,34,18062],[16,36,18932],[16,40,20889],[16,44,22836],[16,46,23608],[16,48,24381],[16,50,25395],[16,52,25941],[16,54,26981],[16,56,27548],[16,60,29191]],"material":"wood","from":4162,"std":"Wood barn roof, door on the long side, two lofts, 2\u00d73 windows beside the door.","shape":"barn","label":"Side Lofted Barn"},{"name":"Garage","code":"G","sizes":[[10,12,6649],[10,16,7087],[10,20,7566],[10,24,8781],[12,14,7443],[12,16,8349],[12,18,9234],[12,20,9770],[12,24,11094],[12,26,11758],[12,28,13560],[12,30,13071],[12,32,13519],[12,34,14338],[12,36,14951],[12,40,16115],[14,18,9423],[14,20,10249],[14,22,11660],[14,24,11732],[14,28,13560],[14,30,14508],[14,32,15198],[14,34,16151],[14,36,16774],[14,40,18273],[16,16,12181],[16,18,12792],[16,20,13403],[16,24,13864],[16,26,14189],[16,28,14678],[16,30,15837],[16,32,16707],[16,34,17742],[16,36,18314],[16,38,19251],[16,40,20245],[16,42,21260],[16,44,22094],[16,46,22910],[16,48,23915],[16,50,24834],[16,52,25534]],"material":"wood","from":6649,"std":"Wood workshop with a roll-up door (6\u2032 on 10\u2032 wide, 9\u2032 on 12\u2032+), walk-in door and a window.","shape":"garage","label":"Workshop (roll-up door)"},{"name":"Cabin","code":"C","sizes":[[8,12,5017],[8,14,5449],[8,16,5779],[8,20,6809],[10,10,5339],[10,12,6407],[10,14,6680],[10,16,6809],[10,18,7478],[10,20,7798],[10,24,8987],[10,28,10208],[10,30,11109],[10,32,11650],[12,12,6500],[12,16,7854],[12,18,8508],[12,20,8925],[12,22,10036],[12,24,10254],[12,26,10991],[12,28,11408],[12,30,12299],[12,32,12783],[12,34,13483],[12,36,13859],[12,40,14920],[12,44,15996],[14,16,9214],[14,20,9806],[14,24,11346],[14,28,12489],[14,30,13602],[14,32,14302],[14,34,15317],[14,36,15919],[14,40,17279],[14,44,18643],[14,46,19334],[14,48,20019],[14,50,20925],[14,52,21445],[16,16,10635],[16,20,11825],[16,22,12592],[16,24,13009],[16,26,13926],[16,28,14390],[16,30,15523],[16,32,16238],[16,34,16965],[16,36,17459],[16,38,18430],[16,40,19164],[16,44,20796],[16,46,21682],[16,48,22290],[16,50,23217],[16,52,23804],[16,54,24813],[16,56,25375],[16,60,27187]],"material":"wood","from":5017,"std":"Wood, 8\u2032 walls, 4\u2032 front porch with handrails, 9-lite door, three 2\u00d73 windows.","shape":"cabin","label":"Cabin"},{"name":"Lofted Cabin","code":"LC","sizes":[[10,12,5774],[10,16,7504],[10,18,8199],[10,20,8642],[10,24,9791],[10,28,10991],[10,30,11815],[12,12,7870],[12,16,9044],[12,18,9811],[12,20,10244],[12,24,11459],[12,28,12690],[12,30,13699],[12,32,14220],[12,34,14987],[12,36,15569],[12,40,16970],[14,24,12685],[14,28,14554],[14,30,15687],[14,32,16558],[14,34,17480],[14,36,18128],[14,40,19854],[14,44,21471],[14,48,23134],[14,60,27378],[16,20,12706],[16,24,14451],[16,28,16326],[16,30,17485],[16,32,18551],[16,34,19586],[16,36,20194],[16,40,22279],[16,44,24468],[16,46,25441],[16,48,26276],[16,50,27445],[16,52,28089],[16,56,29896],[16,60,31699]],"material":"wood","from":5774,"std":"Wood, 4\u2032 porch with handrails, 9-lite door, three windows, lofts front and back.","shape":"barncabin","label":"Lofted Cabin"},{"name":"Deluxe Cabin","code":"DC","sizes":[[12,24,11794],[12,28,13056],[12,30,13596],[12,32,14070],[12,34,14663],[12,36,15090],[12,40,16563],[12,52,21043],[14,24,13282],[14,26,14034],[14,28,14426],[14,30,15548],[14,32,16223],[14,34,16995],[14,36,17418],[14,38,18391],[14,40,18901],[14,44,20374],[14,48,21847],[14,52,23315],[16,22,13514],[16,24,14075],[16,26,14642],[16,28,15203],[16,30,16609],[16,32,17346],[16,34,18195],[16,36,18757],[16,40,20543],[16,42,21012],[16,44,21996],[16,46,23031],[16,48,23557],[16,50,24865],[16,52,25946],[16,56,26966],[16,60,28810]],"material":"wood","from":11794,"std":"Wood, 8\u2032 walls, L-shaped wraparound porch, 9-lite door, windows on the porch and long walls.","shape":"cabin","label":"Deluxe Cabin"},{"name":"Deluxe Lofted Cabin","code":"DLC","sizes":[[12,24,13998],[12,28,14472],[12,30,14853],[12,32,15533],[12,34,16403],[12,36,16923],[12,40,18298],[14,24,14055],[14,26,15069],[14,28,15739],[14,30,16702],[14,32,17670],[14,34,18674],[14,36,19401],[14,40,20946],[14,44,22485],[14,54,25220],[16,20,14760],[16,24,15656],[16,28,16723],[16,30,17845],[16,32,18746],[16,34,20322],[16,36,21388],[16,40,23361],[16,44,25508],[16,48,27656],[16,50,28557],[16,52,29170],[16,56,31215],[16,60,34073]],"material":"wood","from":13998,"std":"Wood, L-shaped porch, 9-lite door, porch and side windows, lofts front and back.","shape":"barncabin","label":"Deluxe Lofted Cabin"},{"name":"Inset Porch Cabin","code":"IPC","sizes":[[16,40,17858],[16,46,21227],[16,52,23124],[16,54,24257],[16,56,25848],[16,60,27239]],"material":"wood","from":17858,"std":"16\u2032 wide wood cabin with a porch set into the building.","shape":"cabin","label":"Inset Porch Cabin"},{"name":"Elite Series","code":"ES","sizes":[[10,16,7504],[10,18,8179],[10,20,8436],[10,24,9641],[10,26,10249],[10,28,10826],[10,30,11614],[10,32,12134],[12,14,7962],[12,16,8761],[12,18,9461],[12,20,9863],[12,22,10553],[12,24,11243],[12,28,12340],[12,30,13396],[12,32,13797],[12,34,14663],[12,36,14987],[12,38,15600],[12,40,16017],[12,44,17109],[12,48,18190],[12,50,18937],[12,52,19447],[12,54,20230],[14,16,9827],[14,18,10568],[14,20,10949],[14,22,11959],[14,24,12608],[14,26,13287],[14,28,13931],[14,30,14925],[14,32,15569],[14,34,16444],[14,36,16985],[14,38,17753],[14,40,18247],[14,44,19509],[14,48,20791],[14,50,21636],[14,52,22109],[14,54,22949],[16,16,10764],[16,18,11500],[16,20,12319],[16,22,13457],[16,24,14142],[16,26,15038],[16,28,15471],[16,30,16542],[16,32,17176],[16,34,18020],[16,36,18571],[16,40,20317],[16,42,21213],[16,44,22125],[16,46,22774],[16,48,23412],[16,50,24478],[16,52,25071],[16,54,26070],[16,56,26662],[16,58,27903],[16,60,28691]],"material":"wood","from":7504,"std":"Wood, 8\u2032 walls, double 36\u2033 transom doors, shuttered windows, 7/12 roof, dormer and lofts.","shape":"gable","label":"Elite Series"},{"name":"The Austin Flat","code":"AF","sizes":[[4,8,3362],[4,10,3560],[5,9,3667],[6,8,3362],[6,9,3783],[6,10,4182],[6,12,4382],[6,14,4584],[6,16,5238],[8,8,4517],[8,10,5037],[8,12,5238],[8,14,5748],[8,16,5974],[8,18,6423],[8,20,6721],[8,24,7483],[10,10,5702],[10,12,5933],[10,14,6412],[10,16,6747],[10,18,7288],[10,20,7669],[10,22,8127],[10,24,8580],[12,12,6595],[12,14,7069],[12,16,7365],[12,18,8127],[12,20,8580],[12,22,9493],[12,24,10357],[12,28,12082],[12,30,12947],[12,32,13809],[12,36,15533],[12,40,17263]],"material":"wood","from":3362,"std":"Wood with a modern single-slope roof, 72\u2033 front door and transom windows.","shape":"flat","label":"Austin Flat"},{"name":"Modern Lean To","code":"Modern Lean To","sizes":[[10,14,7420],[12,14,8904],[12,16,10176],[12,18,11448],[12,20,12720],[14,24,17808],[14,30,22680],[14,40,30240]],"material":"wood","from":7420,"std":"Rated 160 MPH (165 in HVHZ). LP SmartSide, treated skids and floor, metal roof.","shape":"flat","label":"Modern Lean-To"},{"name":"Metal Utility","code":"MUT","sizes":[[6,6,1479],[6,8,1818],[6,10,2277],[6,12,2730],[8,6,2050],[8,8,2416],[8,10,2890],[8,12,3199],[8,14,3729],[8,16,4054],[8,20,4986],[8,24,5923],[10,10,3822],[10,12,4002],[10,14,4466],[10,16,4687],[10,18,5444],[10,20,5799],[10,24,6783],[10,26,7777],[10,28,8228],[10,30,8436],[10,32,8792],[12,12,5269],[12,14,6108],[12,16,6623],[12,18,7061],[12,20,7432],[12,24,8076],[12,26,8673],[12,28,8967],[12,30,9878],[12,32,10506],[14,14,7061],[14,16,8029],[14,18,8611],[14,20,8967],[14,24,9997],[14,28,10630],[14,30,10450],[14,32,11578],[16,16,9224],[16,20,10290],[16,24,12237],[16,28,13076],[16,30,13627],[16,32,14096]],"material":"metal","from":1479,"std":"Metal (29 ga, lifetime warranty), 6\u20326\u2033 walls, metal door (double doors 10\u2032+ wide).","shape":"gable","label":"Metal Utility"},{"name":"Metal Side Utility","code":"MSUT","sizes":[[8,10,3090],[8,12,3405],[8,14,3935],[8,16,4260],[8,20,5192],[8,24,6129],[10,10,4028],[10,12,4208],[10,14,4672],[10,16,4893],[10,18,5650],[10,20,6005],[10,24,6984],[10,28,7978],[10,30,8642],[10,32,8998],[12,12,5475],[12,14,6314],[12,16,6829],[12,18,7262],[12,20,7633],[12,24,8277],[12,28,9173],[12,30,10084],[12,32,10707],[14,14,7262],[14,16,8235],[14,18,8817],[14,20,9173],[14,24,10203],[14,28,10836],[14,32,11784],[16,16,9430],[16,20,10496],[16,24,12443],[16,28,13282],[16,30,13833],[16,32,14302]],"material":"metal","from":3090,"std":"Metal, door on the long side, 2\u00d73 window each side of the door.","shape":"gable","label":"Metal Side Utility"},{"name":"Metal Lofted Barn","code":"MLB","sizes":[[8,8,2895],[8,10,3399],[8,12,3724],[8,14,4193],[8,16,4553],[8,20,5398],[8,24,6232],[10,10,3863],[10,12,4337],[10,14,4914],[10,16,5315],[10,18,5944],[10,20,6412],[10,22,6958],[10,24,7494],[10,28,8441],[10,30,9070],[12,12,5882],[12,14,6608],[12,16,7071],[12,18,7504],[12,20,7715],[12,24,9147],[12,28,10012],[12,30,10661],[12,32,11027],[14,18,8668],[14,20,9095],[14,24,10074],[14,28,11222],[14,30,11840],[14,32,12273],[16,20,10599],[16,24,11655],[16,28,12752],[16,30,13463],[16,32,13849]],"material":"metal","from":2895,"std":"Metal barn roof (29 ga) with two lofts; double doors on 10\u2032+ wide.","shape":"barn","label":"Metal Lofted Barn"},{"name":"Metal Side Lofted Barn","code":"MSLB","sizes":[[8,10,3605],[8,12,3930],[8,14,4399],[8,16,4754],[8,20,5604],[8,24,6438],[10,10,4064],[10,12,4543],[10,14,5114],[10,16,5521],[10,18,6144],[10,20,6613],[10,22,7159],[10,24,7700],[10,30,8410],[12,12,6088],[12,14,6814],[12,16,7277],[12,18,7710],[12,20,7916],[12,24,9348],[12,28,10218],[12,30,10867],[12,32,11233],[14,18,8874],[14,20,9296],[14,24,10280],[14,28,11428],[14,30,12046],[14,32,12479],[16,20,10800],[16,24,11861],[16,28,12958],[16,30,13663],[16,32,14050]],"material":"metal","from":3605,"std":"Metal barn, door on the long side, two lofts, windows beside the door.","shape":"barn","label":"Metal Side Lofted Barn"},{"name":"Hideout Playhouse","code":"HP","sizes":[[8,8,3811],[8,10,4630],[8,12,4903],[8,14,5537],[8,16,5851],[10,10,5578],[10,12,5805],[10,14,6320],[10,16,6567],[10,18,7386],[10,20,8204],[10,22,9023],[10,28,11485]],"material":"wood","from":3811,"std":"Wood playhouse, 5\u2032 walls, 4\u2032 front porch, Dutch door.","shape":"cabin","label":"Hideout Playhouse"}];
+var API = 'https://build.cat5steelbuildings.com/api/';
+function $(id){return document.getElementById(id);}
+function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+// simple drawings by roof type (no manufacturer photos until we have written OK)
+function art(shape,metal){
+  var wall=metal?'#b9c3cf':'#c8925a', roof=metal?'#5d6b7c':'#3b3f46', trim='#fff';
+  var base='<rect x="30" y="64" width="140" height="58" fill="'+wall+'"/><rect x="86" y="84" width="28" height="38" fill="'+trim+'" opacity=".85"/>';
+  var r={gable:'<polygon points="22,66 100,26 178,66" fill="'+roof+'"/>',
+    barn:'<polygon points="22,68 48,36 100,22 152,36 178,68" fill="'+roof+'"/>',
+    flat:'<polygon points="22,58 178,44 178,56 22,70" fill="'+roof+'"/>',
+    garage:'<polygon points="22,66 100,28 178,66" fill="'+roof+'"/>',
+    cabin:'<polygon points="22,66 100,26 178,66" fill="'+roof+'"/><rect x="30" y="100" width="140" height="4" fill="#6b4423"/><rect x="34" y="104" width="4" height="18" fill="#6b4423"/><rect x="162" y="104" width="4" height="18" fill="#6b4423"/>',
+    barncabin:'<polygon points="22,68 48,36 100,22 152,36 178,68" fill="'+roof+'"/><rect x="30" y="100" width="140" height="4" fill="#6b4423"/>'}[shape]||'';
+  var extra = shape==='garage' ? '<rect x="44" y="80" width="64" height="42" fill="#e9edf2"/><g stroke="#b5c0cf">'+[86,92,98,104,110,116].map(function(y){return '<line x1="44" y1="'+y+'" x2="108" y2="'+y+'"/>';}).join('')+'</g><rect x="128" y="84" width="22" height="38" fill="'+trim+'" opacity=".85"/>'
+    : shape==='cabin'||shape==='barncabin' ? '<rect x="44" y="78" width="22" height="16" fill="#dfe9f3"/><rect x="134" y="78" width="22" height="16" fill="#dfe9f3"/>' : '';
+  if (shape==='garage') base='<rect x="30" y="64" width="140" height="58" fill="'+wall+'"/>';
+  return '<svg viewBox="0 0 200 130" width="200" height="130" aria-hidden="true">'+r+base+extra+'<rect x="20" y="122" width="160" height="3" fill="#8895A8"/></svg>';
+}
+function sizeLabel(z){return z[0]+'′ × '+z[1]+'′';}
+var filt='all';
+function matches(s){
+  if(filt==='all')return true;
+  if(filt==='wood')return s.material==='wood';
+  if(filt==='metal')return s.material==='metal';
+  if(filt==='cabin')return /Cabin|Elite/.test(s.name);
+  if(filt==='barn')return /Barn/.test(s.name);
+  return true;
+}
+function render(){
+  $('grid').innerHTML = CATALOG.filter(matches).map(function(s,i){
+    var idx=CATALOG.indexOf(s), def=s.sizes.find(function(z){return z[0]===10&&z[1]===12;})||s.sizes[Math.min(2,s.sizes.length-1)];
+    return '<div class="card"><div class="pic"><span class="tag">'+(s.material==='metal'?'Metal':'Wood')+'</span>'+art(s.shape,s.material==='metal')+'</div>'+
+      '<div class="body"><h3>'+esc(s.label)+'</h3><div class="from">from <b>'+money(s.from)+'</b></div><div class="std">'+esc(s.std)+'</div>'+
+      '<div class="row"><select data-i="'+idx+'" aria-label="Size for '+esc(s.label)+'">'+s.sizes.map(function(z,k){return '<option value="'+k+'"'+(z===def?' selected':'')+'>'+sizeLabel(z)+'</option>';}).join('')+'</select>'+
+      '<span class="price" id="p'+idx+'">'+money(def[2])+'</span></div>'+
+      '<button class="btn" data-req="'+idx+'">Request this shed</button></div></div>';
+  }).join('');
+}
+document.addEventListener('change',function(e){var t=e.target; if(t.matches('select[data-i]')){var s=CATALOG[+t.dataset.i], z=s.sizes[+t.value]; $('p'+t.dataset.i).textContent=money(z[2]);}});
+$('filters').addEventListener('click',function(e){var b=e.target.closest('button'); if(!b)return; filt=b.dataset.f; Array.prototype.forEach.call(this.children,function(x){x.classList.toggle('on',x===b);}); render();});
+
+// request form
+var pick=null;
+function openReq(p){
+  pick=p; $('dTitle').textContent='Request: '+p.style+' '+p.w+'′ × '+p.l+'′';
+  $('dSub').textContent=(p.stock?'In stock'+(p.lot?' at '+p.lot:'')+' · ':'New build · ')+money(p.price)+(p.stock?'':' base price');
+  $('fErr').textContent=''; $('fSend').disabled=false; $('fSend').textContent='Send my request';
+  if(!$('fZip').value && $('zip').value) $('fZip').value=$('zip').value;
+  $('dlg').showModal();
+  try{ gtag('event','shed_request_open',{style:p.style,size:p.w+'x'+p.l,stock:p.stock?1:0}); }catch(e){}
+}
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-req]'); if(b){var s=CATALOG[+b.dataset.req], sel=document.querySelector('select[data-i="'+b.dataset.req+'"]'), z=s.sizes[+sel.value]; openReq({style:s.label,w:z[0],l:z[1],price:z[2]}); return;}
+  var st=e.target.closest('[data-stock]'); if(st){var it=STOCK[+st.dataset.stock]; openReq({style:it.style,w:it.w,l:it.l,price:it.price,stock:it.stock||it.id,lot:it.city?it.city+', '+it.state:''});}
+});
+$('close').onclick=function(){ $('dlg').close(); };
+$('form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var body={name:$('fName').value.trim(),phone:$('fPhone').value.trim(),email:$('fEmail').value.trim(),zip:$('fZip').value.trim(),notes:$('fNotes').value.trim(),
+    agree:$('fAgree').checked,website:$('fWeb').value,style:pick.style,w:pick.w,l:pick.l,price:pick.price,stock:pick.stock||''};
+  if(!body.name||body.phone.replace(/\D/g,'').length<10){$('fErr').textContent='Please add your name and phone number.';return;}
+  if(!body.agree){$('fErr').textContent='Please check the box to continue.';return;}
+  $('fSend').disabled=true; $('fSend').textContent='Sending…';
+  fetch(API+'shedlead',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});})
+  .then(function(x){
+    if(!x.ok||!x.j.ok){throw new Error(x.j.error||'');}
+    try{ gtag('event','generate_lead',{form:'shed',style:body.style}); }catch(e){}
+    $('form').innerHTML='<h3>Got it, '+esc(body.name.split(/\s+/)[0])+'!</h3><p class="sub" style="margin-top:8px">A Cat 5 rep will call you about your '+esc(body.style)+' '+body.w+'′ × '+body.l+'′, usually the same business day. Questions now? Call <a href="tel:+18884078335">(888) 407-8335</a>.</p><button class="btn ghost" type="button" onclick="document.getElementById(\'dlg\').close()">Close</button>';
+  }).catch(function(err){ $('fSend').disabled=false; $('fSend').textContent='Send my request'; $('fErr').textContent=err.message||'That didn’t go through. Please call (888) 407-8335.'; });
+});
+
+// in-stock sheds: fills itself once the inventory is connected (empty for now, section stays hidden)
+var STOCK=[];
+function miles(a,b,c,d){var R=3959,x=(c-a)*Math.PI/180,y=(d-b)*Math.PI/180,h=Math.sin(x/2)*Math.sin(x/2)+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*Math.sin(y/2)*Math.sin(y/2);return 2*R*Math.asin(Math.sqrt(h));}
+var here=null;
+function renderStock(){
+  var list=STOCK.map(function(it,i){it._i=i; it._mi=(here&&it.lat)?miles(here[0],here[1],it.lat,it.lng):null; return it;});
+  if(here) list.sort(function(a,b){return (a._mi==null?1e9:a._mi)-(b._mi==null?1e9:b._mi);});
+  $('stockGrid').innerHTML=list.map(function(it){
+    var metal=/metal/i.test(it.style||''), shape=/barn/i.test(it.style)?'barn':/cabin/i.test(it.style)?'cabin':/garage|workshop/i.test(it.style)?'garage':'gable';
+    var pic=it.photos&&it.photos[0]?'<img src="'+esc(it.photos[0])+'" alt="" style="width:100%;height:100%;object-fit:cover">':art(shape,metal);
+    return '<div class="card"><div class="pic"><span class="tag">In stock</span>'+pic+'</div><div class="body"><h3>'+esc(it.style)+' '+it.w+'′ × '+it.l+'′</h3>'+
+      '<div class="from"><b>'+money(it.price)+'</b>'+(it.color?' · '+esc(it.color):'')+'</div><div class="std">'+esc([it.city,it.state].filter(Boolean).join(', '))+(it._mi!=null?' <span class="mi">· '+Math.round(it._mi)+' mi from you</span>':'')+'</div>'+
+      '<button class="btn" data-stock="'+it._i+'">Request this shed</button></div></div>';
+  }).join('');
+}
+fetch(API+'shedinv').then(function(r){return r.json();}).then(function(j){ STOCK=(j&&j.items)||[]; if(STOCK.length){ $('stock').style.display='block'; renderStock(); } }).catch(function(){});
+$('zip').addEventListener('input',function(){
+  var z=this.value.replace(/\D/g,''); if(z.length!==5){here=null; $('zipMsg').textContent=''; renderStock(); return;}
+  fetch('https://api.zippopotam.us/us/'+z).then(function(r){return r.json();}).then(function(j){var p=j.places&&j.places[0]; if(p){here=[+p.latitude,+p.longitude]; $('zipMsg').textContent='Closest to '+p['place name']+', '+p['state abbreviation']+' first'; renderStock();}}).catch(function(){});
+});
+render();
+</script>
+</body>
+</html>
