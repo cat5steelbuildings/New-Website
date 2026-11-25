@@ -9,8 +9,8 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Sheds by Cat 5: live Stor-Mor inventory feed for /sheds (Nov 1 2026)
+# /sheds: old shed page removed Nov 25 2026 (supplier deal ended); new shed line page coming. Send visitors home for now.
 [[redirects]]
-  from = "/api/sheds"
-  to = "/.netlify/functions/sheds"
-  status = 200
+  from = "/sheds/*"
+  to = "/"
+  status = 302
